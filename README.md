@@ -294,12 +294,11 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 	1. Harden Firefox
 
-		```
-  		block popups, look for concerning things
-		1) Open Firefox's settings
-		2) Go to "Privacy & Security"
-		3) At the bottom, check "Block dangerous and deceptive content" and all sub-checks
-		```
+  		1. block popups, look for concerning things
+		1. 1) Open Firefox's settings
+		1. 2) Go to "Privacy & Security"
+		1. 3) At the bottom, check "Block dangerous and deceptive content" and all sub-checks
+		
 
 	1. Configure apache2 in `/etc/apache2/apache2.conf`
 
