@@ -260,6 +260,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 			$ which $package
 			$ dpkg-query -l | grep -E '^ii' | less
    			$ dpkg -l | grep hack
+   			$ sudo apt-get remove/purge/autoremove [program name]
 			```
 
 		1. Ensure all services are required
