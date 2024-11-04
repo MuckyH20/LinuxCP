@@ -137,6 +137,13 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 		`$ ls -alR /home`
 
 		**There also may be unauthorized network shares not under the /home directory**
+	1. Files/directories
+		```
+		sudo rm -f [file]
+		sudo rm -rf [directory]
+		Apt-mark to see if manually installed or held
+		Turn on automatic backup
+		```
 
 1. Network Security
 
