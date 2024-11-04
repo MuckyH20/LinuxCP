@@ -56,6 +56,8 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 		$ useradd -G $group1,$group2 $user
 		$ passwd $user
 		```
+  	1. Admins who shouldn't be admin
+                `getent group | grep sudo`
 
 	1. Remove unauthorized users from adm and groups
 
