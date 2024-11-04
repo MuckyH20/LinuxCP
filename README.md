@@ -9,6 +9,8 @@ I would no longer recommend running `apt-get dist-upgrade` in competition. They 
 
 This script heavily borrows from [Forty-Bot Linux Checklist](https://github.com/Forty-Bot/linux-checklist)
 
+Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-tools-desktop -y`
+
 ## Checklist
 
 1. Read the readme
