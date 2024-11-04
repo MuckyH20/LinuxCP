@@ -1,5 +1,5 @@
 # LinuxCP
-# Wando Team 2oe Linux Checklist
+# SixSwords Linux Checklist
 
 ## Notes
 
