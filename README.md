@@ -121,7 +121,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 		Be sure to record new user passwords!
 
-		`$ passwd $user`
+		`$ passwd $user OR utilize chpasswd command`
 
 		Change all passwords that dont meet the new requirements to CyberPatriot24$
 
