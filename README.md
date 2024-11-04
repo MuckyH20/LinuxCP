@@ -47,7 +47,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
                 `getent group | grep sudo`
            	`getent group | grep :0`
            	`getent passwd | grep :0`
-                `getent passwd '/home'`
+                `getent passwd | grep /home`
 
 	1. Delete unauthorized users
 
