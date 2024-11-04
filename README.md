@@ -30,7 +30,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 		`$ passwd -l root`
 
-	1. Disable the guest account in `/etc/lightdm/lightdm.conf`
+	1. Disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm
 
 		```
 		allow-guest=false
