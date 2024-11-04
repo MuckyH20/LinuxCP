@@ -43,6 +43,12 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 		Look out for uid 0 and hidden users! if you find user with uid 0, edit the /etc/passwd file. If anyone had uid 0, means they are root that is not good!! You will need to edit /etc/passwd file.
 
+        1. Admins who shouldn't be admin
+                `getent group | grep sudo`
+           	`getent group | grep :0`
+           	`getent passwd | grep :0`
+                `getent passwd '/home'`
+
 	1. Delete unauthorized users
 
 		```
@@ -56,8 +62,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 		$ useradd -G $group1,$group2 $user
 		$ passwd $user
 		```
-  	1. Admins who shouldn't be admin
-                `getent group | grep sudo`
+  	
 
 	1. Remove unauthorized users from adm and groups
 
