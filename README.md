@@ -77,6 +77,8 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 	1. Wait to change user passwords until after password policy!
 
+        1. In /etc/passwd for root, change /bin/bash to /sbin/nologin(double check competition reqs)
+
 1. Password Policy
 
 	1. Change password expiration requirements in `/etc/login.defs`
