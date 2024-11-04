@@ -1,0 +1,78 @@
+# Ignore compiled binaries
+*.o
+*.out
+*.so
+*.a
+
+# Ignore backup and temporary files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+*.log
+*.pid
+*.state
+
+# Ignore core dump files
+core
+core.*
+
+# Ignore directories for temporary files and build artifacts
+tmp/
+temp/
+build/
+.cache/
+
+# Ignore environment and dependency files
+.env
+.env.*
+
+# Ignore editor-specific files
+# VS Code
+.vscode/
+*.code-workspace
+
+# Vim
+*.swp
+*.swo
+*.swn
+*.un~
+*.vimbackup
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# macOS-specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows-specific files
+Thumbs.db
+Desktop.ini
+
+# Ignore local shell history files
+.bash_history
+.zsh_history
+.history
+
+# Ignore output and debugging files
+*.log
+*.trace
+*.err
+*.out
+
+# Ignore sensitive config files (if applicable)
+.config/ # only if sensitive configs are stored here
+
+# Ignore custom scripts or helper files if not for production
+scripts/test_*
+scripts/debug_*
+
+# Ignore test results
+*.test.log
+*.test.out
