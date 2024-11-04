@@ -30,7 +30,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 		`$ passwd -l root`
 
-	1. Disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm
+	1. If lightdm exists, disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm
 
 		```
 		allow-guest=false
@@ -43,7 +43,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 		Look out for uid 0 and hidden users! if you find user with uid 0, edit the /etc/passwd file. If anyone had uid 0, means they are root that is not good!! You will need to edit /etc/passwd file.
 
-        1. Admins who shouldn't be admin
+        1. Find unauth users/admins/groups
                 `getent group | grep sudo`
            	`getent group | grep :0`
            	`getent passwd | grep :0`
