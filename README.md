@@ -478,3 +478,8 @@ This script heavily borrows from [Forty-Bot Linux Checklist](https://github.com/
 
 [Awesome Security Hardening](https://github.com/decalage2/awesome-security-hardening)
 
+
+
+## Used Checklists
+1. https://github.com/CAMS-CyberPatriot/Linux-Checklist-1
+
