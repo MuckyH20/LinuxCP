@@ -506,4 +506,5 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 ## Used Checklists
 1. https://github.com/CAMS-CyberPatriot/Linux-Checklist-1
+2. https://sites.google.com/view/ahscybersec/home?authuser=0
 
