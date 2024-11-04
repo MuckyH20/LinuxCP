@@ -3,6 +3,8 @@
 
 ## Notes
 
+Preferred text editor: sudo apt install micro
+
 Assume root permissions are needed for most commands. You can use `sudo` or become root with `su`.
 
 I would no longer recommend running `apt-get dist-upgrade` in competition. They may call it intelligent, but it has a bad track record of breaking critical services.
