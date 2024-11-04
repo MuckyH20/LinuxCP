@@ -4,6 +4,7 @@
 ## Notes
 
 Preferred text editor: sudo apt install micro
+^e set colorscheme material-tc
 
 Assume root permissions are needed for most commands. You can use `sudo` or become root with `su`.
 
