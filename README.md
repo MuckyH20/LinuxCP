@@ -39,9 +39,9 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 		autologin-user=none
 		```
 
-	1. Compare `/etc/passwd` and `/etc/group` to the readme
+	1. Compare `/etc/passwd` and `/etc/group` to the readme 
 
-		Look out for uid 0 and hidden users!
+		Look out for uid 0 and hidden users! if you find user with uid 0, edit the /etc/passwd file. If anyone had uid 0, means they are root that is not good!! You will need to edit /etc/passwd file.
 
 	1. Delete unauthorized users
 
