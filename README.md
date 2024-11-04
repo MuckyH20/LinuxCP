@@ -121,6 +121,8 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 		`$ passwd $user`
 
+		Change all passwords that dont meet the new requirements to CyberPatriot24$
+
 
 1. Check for unauthorized media
 
