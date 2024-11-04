@@ -1,4 +1,4 @@
-# Wando Team 2oe Apache Checklist
+# Wando Team 2oe Apache Checklist(add ftp, ssh and other crit)
 
 ## Notes
 
