@@ -151,6 +151,7 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 		Apt-mark to see if manually installed or held
 		Turn on automatic backup
 		```
+  	1. Check Important Files Perms(Ex: etc/shadow) and change them to security standard
 
 1. Network Security
 
