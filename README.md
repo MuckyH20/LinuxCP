@@ -113,6 +113,36 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		`auth	required	pam_tally2.so deny=5 audit unlock_time=1800 onerr=fail even_deny_root`
 
+	   	`above is depreciated`
+
+
+	   	```
+     		sudo touch /usr/share/pam-configs/faillock
+     		gedit admin:///usr/share/pam-configs/faillock
+     		In /usr/share/pam-configs/faillock type the following text:
+		Name: Enforce failed login attempt counter
+		Default: no
+		Priority: 0
+		Auth-Type: Primary
+		Auth:
+		    [default=die] pam_faillock.so authfail
+		    sufficient pam_faillock.so authsucc
+
+     		sudo touch /usr/share/pam-configs/faillock_notify
+     		gedit admin:///usr/share/pam-configs/faillock_notify
+     		In /usr/share/pam-configs/faillock_notify type the following text:
+		Name: Notify on failed login attempts
+		Default: no
+		Priority: 1024
+		Auth-Type: Primary
+		Auth:
+		    requisite pam_faillock.so preauth
+
+     		sudo pam-auth-update
+
+     		Select,with the spacebar, Notify on failed login attempts, and Enforce failed login attempt 			counter, and then select <Ok>
+     		```
+
 	1. Change account expiry defaults in `/etc/default/useradd`
 
 		```
