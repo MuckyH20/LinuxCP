@@ -312,7 +312,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		1. Ensure all services are required
 
-			`service --status-all`
+			`service --status-all or systemctl list-units --type=service --state=active`
 			`sudo systemctl disable --now $service`
 
 		BAD STUFF
