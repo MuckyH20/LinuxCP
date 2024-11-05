@@ -1,5 +1,17 @@
 needs to be expanded upon
 
+Current
+README
+Forensic Questions
+Checklist
+Baseline
+
+
+
+
+
+
+Final
 README
 Forensic Questions
 Initialize script and fix potential issues that may affect script features (e.g., reset APT repositories, removed immutable permissions, reset $PATH variable, etc.)
