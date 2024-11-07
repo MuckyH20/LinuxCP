@@ -143,7 +143,7 @@ So far in this checklist you are mostly adding to text files, but remember there
      		Select,with the spacebar, Notify on failed login attempts, and Enforce failed login attempt counter, and then select <Ok>
      		
 
-	1. Change account expiry defaults in `/etc/default/useradd`
+	1. Change account expiry defaults in `/etc/default/useradd`(prob not needed)
 
 		```
 		EXPIRE=30
