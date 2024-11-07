@@ -98,7 +98,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. Add password history, minimum password length, and password complexity requirements in `/etc/pam.d/common-password`
 
-		**INSTALL CRACKLIB PRIOR TO CHANGING COMMON-PASSWORD**
+		**INSTALL CRACKLIB PRIOR TO CHANGING COMMON-PASSWORD**(is depreciated use pwquality)
 
 		`$ apt-get install libpam-cracklib`
 
