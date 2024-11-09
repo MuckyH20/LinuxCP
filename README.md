@@ -28,11 +28,11 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 1. Account Configuration
 
-	1. Lock the root account
+	1. Lock the root account from direct log in. Possibly just change shell to nologin, comp reqs.
 
 		`$ passwd -l root`
 
-	1. If lightdm exists, disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm
+	1. If lightdm exists, disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm. Check for other display managers, as then you will have to harden those.
 
 		```
 		allow-guest=false
@@ -46,10 +46,10 @@ So far in this checklist you are mostly adding to text files, but remember there
 		Look out for uid 0 and hidden users! if you find user with uid 0, edit the /etc/passwd file. If anyone had uid 0, means they are root that is not good!! You will need to edit /etc/passwd file.
 
         1. Find unauth users/admins/groups
-                `getent group | grep sudo`
-           	`getent group | grep :0`
-           	`getent passwd | grep :0`
-                `getent passwd | grep /home`
+                look for unauth admin: `getent group | grep sudo`
+           	not comprehensive, group privs given in sudoers`getent group | grep :0`
+           	get unauth root: `getent passwd | grep :0`
+                get all users: `getent passwd | grep /home`
 
 	1. Delete unauthorized users
 
@@ -81,6 +81,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 		1. Any commands listed can be run without a password (ex: /bin/chmod)
 
 		1. Group lines are preceded by `%`
+
+     		1. General file check if unauth user has sudo access like user1 ALL=(ALL) ALL
 
 	1. Wait to change user passwords until after password policy!
 
