@@ -100,27 +100,24 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. Add password history, minimum password length, and password complexity requirements in `/etc/pam.d/common-password`
 
-		**INSTALL CRACKLIB PRIOR TO CHANGING COMMON-PASSWORD**(is depreciated use pwquality)
+		**INSTALL PWQUALITY PRIOR TO CHANGING COMMON-PASSWORD**: 
 
-		`$ apt-get install libpam-cracklib`
+		`$ apt install libpam-pwquality`
 
 		```
 		password	required	pam_unix.so obscure sha512 remember=12 use_authtok
-		password	required	pam_cracklib.so retry=3 minlen=13 difok=4 dcredit=-1 ucredit=-1 ocredit=-1 lcredit=-1 maxrepeat=3
+		password	required	pam_pwquality.so retry=3 minlen=13 difok=4 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
+
 		```
 
 	1. Enforce account lockout policy in `/etc/pam.d/common-auth`
 
 		**MUST COME FIRST**
 
-		`auth	required	pam_tally2.so deny=5 audit unlock_time=1800 onerr=fail even_deny_root`
-
-	   	`above is depreciated`
-
-
 	   	```
      		sudo touch /usr/share/pam-configs/faillock
-     		gedit admin:///usr/share/pam-configs/faillock
+     		sudo micro /usr/share/pam-configs/faillock
+
      		In /usr/share/pam-configs/faillock type the following text:
 		Name: Enforce failed login attempt counter
 		Default: no
@@ -131,7 +128,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 		    sufficient pam_faillock.so authsucc
 
      		sudo touch /usr/share/pam-configs/faillock_notify
-     		gedit admin:///usr/share/pam-configs/faillock_notify
+     		sudo micro /usr/share/pam-configs/faillock_notify
+
      		In /usr/share/pam-configs/faillock_notify type the following text:
 		Name: Notify on failed login attempts
 		Default: no
@@ -145,20 +143,13 @@ So far in this checklist you are mostly adding to text files, but remember there
      		Select,with the spacebar, Notify on failed login attempts, and Enforce failed login attempt counter, and then select <Ok>
      		
 
-	1. Change account expiry defaults in `/etc/default/useradd`(prob not needed)
-
-		```
-		EXPIRE=30
-		INACTIVE=30
-		```
-
 	1. Check minimum and maximum password ages in `/etc/shadow`
 
 		Use `chage` to change password expiration.
 
 		`$ chage -m $MIN -M $MAX $user`
 
-	1. **CHANGE PASSWORDS---YOU WILL BE LOCKED OUT IF YOU DON'T!**
+	1. **CHANGE PASSWORDS---YOU WILL BE LOCKED OUT IF YOU DON'T! acc idk bout allat**
 
 		Be sure to record new user passwords!
 
