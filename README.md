@@ -112,10 +112,15 @@ So far in this checklist you are mostly adding to text files, but remember there
 		`$ apt install libpam-pwquality`
 
 		```
-		password	required	pam_unix.so obscure sha512 remember=12 use_authtok
-		password	required	pam_pwquality.so reject_username enforce_for_root maxclassrepeat=5 maxsequence=5 dcredit=-1 ocredit=-1 lcredit=-1 ucredit=-1 minlen=16 difok=5 retry=3
-		password 	requisite	pam_pwquality.so retry=3
-  		password 	required	pam_pwhistory.so remember=5
+		# Enforces strong password hashing and prevents password reuse
+		password    required    pam_unix.so obscure sha512 remember=12 use_authtok
+
+		# Enforces password complexity and policies
+		password    required    pam_pwquality.so reject_username enforce_for_root 				maxclassrepeat=3 maxsequence=3 dcredit=-1 ocredit=-1 lcredit=-1 ucredit=-1 minlen=16 difok=5 retry=3
+
+		# Enforces password history to prevent recent reuse of passwords
+		password    required    pam_pwhistory.so remember=12 enforce_for_root
+
 
 
 		```
