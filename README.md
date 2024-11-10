@@ -10,8 +10,6 @@ Assume root permissions are needed for most commands. You can use `sudo` or beco
 
 I would no longer recommend running `apt-get dist-upgrade` in competition. They may call it intelligent, but it has a bad track record of breaking critical services.
 
-This script heavily borrows from [Forty-Bot Linux Checklist](https://github.com/Forty-Bot/linux-checklist)
-
 Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-tools-desktop -y`
 
 So far in this checklist you are mostly adding to text files, but remember there may be things to be removed within. For example, in pam/common-auth in 'auth [success=2 default=ignore] pam_unix.so nullok' nullok allows empty passwords to log in so it must be removed. You have to actually understand these services. STIGS and CIS have baselines. Gotta find which modules are and where they should be.
@@ -914,7 +912,8 @@ aa-enforce /etc/apparmor.d/*
 
 
 ## Used Checklists
-1. https://github.com/CAMS-CyberPatriot/Linux-Checklist-1
-2. https://sites.google.com/view/ahscybersec/home?authuser=0
-3. https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/linux_checklist.md
+1. https://github.com/Forty-Bot/linux-checklist
+2. https://github.com/CAMS-CyberPatriot/Linux-Checklist-1
+3. https://sites.google.com/view/ahscybersec/home?authuser=0
+4. https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/linux_checklist.md
 
