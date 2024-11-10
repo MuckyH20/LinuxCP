@@ -888,6 +888,23 @@ Audit SGID executables
 /etc/audit/auditd.conf:
 max_log_file_action=keep_log
 ```
+
+
+Misc:
+```
+snap refresh
+apt install rsyslog -y
+systemctl enable rsyslog
+/etc/rsyslog.conf:
+Remove anything that sends logs to a domain
+apt purge xinetd openbsd-inetd inetutils-inetd -y
+apt install tcpd -y
+apt install apparmor -y
+aa-enforce /etc/apparmor.d/*
+```
+
+
+
 ## Other Checklists
 
 [SANS Hardening the Linux System](https://www.sans.org/media/score/checklists/LinuxCheatsheet_2.pdf)
