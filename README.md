@@ -467,7 +467,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. Load new sysctl settings
 
-		`$ sysctl -p`
+		`$ sysctl -p` or `sysctl --system`
 
 1. Antivirus
 
