@@ -103,6 +103,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 		PASS_MAX_DAYS 90
 		PASS_MIN_DAYS 10
 		PASS_WARN_AGE 7
+  		umask 027
 		```
 
 	1. Add password history, minimum password length, and password complexity requirements in `/etc/pam.d/common-password`
