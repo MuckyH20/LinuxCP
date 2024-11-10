@@ -705,6 +705,50 @@ So far in this checklist you are mostly adding to text files, but remember there
 		net.ipv6.conf.default.autoconf = 0
 		net.ipv6.conf.default.dad_transmits = 0
 		net.ipv6.conf.default.max_addresses = 1
+
+
+  		alt:
+
+  		/etc/sysctl.conf:
+		fs.protected_hardlinks=1
+		fs.protected_symlinks=1
+		fs.suid_dumpable=0
+		kernel.exec-shield=1
+		kernel.randomize_va_space=2
+		net.ipv4.ip_forward=0
+		net.ipv4.conf.all.rp_filter=1
+		net.ipv4.conf.all.accept_source_route=0
+		net.ipv4.conf.all.send_redirects=0
+		net.ipv4.conf.all.log_martians=1
+		net.ipv4.conf.all.secure_redirects=0
+		net.ipv6.conf.all.accept_ra=0
+		net.ipv4.conf.default.secure_redirects=0
+		net.ipv4.conf.default.send_redirects=0
+		net.ipv4.conf.default.log_martians=1
+		net.ipv4.conf.default.rp_filter=1
+		net.ipv4.icmp_echo_ignore_broadcasts=1
+		net.ipv4.icmp_ignore_bogus_error_messages=1
+		net.ipv4.icmp_ignore_bogus_error_responses=1
+		net.ipv4.tcp_syncookies=1
+		net.ipv6.conf.all.accept_redirects=0
+		net.ipv6.conf.all.disable_ipv6 = 1 # Careful! This disables IPv6
+		net.ipv6.conf.default.accept_ra=0
+		net.ipv6.conf.default.accept_redirects=0
+		/etc/security/limits.conf:
+		* hard core 0
+		/etc/modprobe.d/CIS.conf:
+		install dccp /bin/true
+		install sctp /bin/true
+		install rds /bin/true
+		install tipc /bin/true
+		/etc/host.conf:
+		order bind,hosts
+		multi on
+		nospoof on
+		/etc/resolv.conf:
+		make server 8.8.8.8
+		/etc/rc.local:
+		exit 0
 		```
 
 	1. Load new sysctl settings
