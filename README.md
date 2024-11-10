@@ -597,6 +597,20 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 
 
+1. USB
+   ```
+        # Stop and disable autofs to prevent automatic filesystem mounting
+	service autofs stop
+	systemctl disable autofs
+
+	# Blacklist usb-storage to disable USB storage device access
+	echo "blacklist usb-storage" | sudo tee /etc/modprobe.d/blacklist-usb-storage.conf
+	sudo modprobe -r usb-storage  # Unload if already loaded
+
+	# Install and enable USBGuard for USB access control
+	apt install usbguard -y
+	systemctl start usbguard
+	systemctl enable usbguard
 
 
 
