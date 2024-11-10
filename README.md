@@ -916,4 +916,5 @@ aa-enforce /etc/apparmor.d/*
 ## Used Checklists
 1. https://github.com/CAMS-CyberPatriot/Linux-Checklist-1
 2. https://sites.google.com/view/ahscybersec/home?authuser=0
+3. https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/linux_checklist.md
 
