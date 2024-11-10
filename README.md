@@ -686,7 +686,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 		```
 		$ freshclam
 		$ freshclam --help
-  		$ clam scan(run from root dir) 
+  		$ clam scan
+  		$ clamscan -r --remove
 		```
 
 	1. Run chkrootkit
@@ -726,10 +727,10 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		```
 		$ cd /usr/local/lynis
-		$ lynis audit system
+		$ lynis audit system or lynis -c
 		```
 
-	1. Look through `/var/log/lynis-report.dat` for warnings and suggestions
+	1. Look through `/var/log/lynis-report.dat or lynis.log` for warnings and suggestions
 
 		`$ grep -E 'warning|suggestion' | sed -e 's/warning\[\]\=//g' | sed -e 's/suggestion\[\]\=//g'`
 
