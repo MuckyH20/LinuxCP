@@ -113,7 +113,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		```
 		password	required	pam_unix.so obscure sha512 remember=12 use_authtok
-		password	required	pam_pwquality.so retry=3 minlen=13(10, check current passwords to avoid lockout) difok=4 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
+		password	required	pam_pwquality.so retry=3 minlen=10, difok=4 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
 
 		```
 
@@ -157,15 +157,6 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		`$ chage -m $MIN -M $MAX $user`
 
-	1. **CHANGE PASSWORDS---YOU WILL BE LOCKED OUT IF YOU DON'T! acc idk bout allat**
-
-		Be sure to record new user passwords!
-
-		`$ passwd $user OR utilize chpasswd command`
-
-		Change all passwords that dont meet the new requirements to CyberPatriot24$
-
-
 
 
 
@@ -174,11 +165,11 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. Find media files
 
-		`$ find / -iname "*.$extension"`
+		`$ find / -iname "*.$extension" or locate *$extension`
 
-	1. Look through user home directories for any unauthorized media
+	1. Remove media files, backdoors, PII files, etc
 
-		`$ ls -alR /home`
+		`$ ls -alR /home/*/*` 
 
 		**There also may be unauthorized network shares not under the /home directory**
 	1. Files/directories
@@ -222,7 +213,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 1. Package Management
 
-	1. Verify the repositories listed in `/etc/apt/sources.list`
+	1. Verify the repositories listed in `/etc/apt/sources.list & /etc/apt/sources.list.d/`
 
 	1. Verify Repositories
 
@@ -242,12 +233,11 @@ So far in this checklist you are mostly adding to text files, but remember there
 		$ apt-get -y dist-upgrade
 		```
   	1. Configure updates with software-properties-gtk
-  
-      		Check for updates daily
+  		Check for updates daily
 		Download and install automatically for security updates
 		Display immediatly for other updates
 	
-        1. sudo apt update & sudo apt upgrade or gui
+        1. sudo apt update & sudo apt upgrade or gui to update apps(firefox, mail, etc)
            
 		**Look for points for packages mentioned in the README, along with bash (if vulnerable to Shellshock), the kernel, sudo, and sshd**
 
