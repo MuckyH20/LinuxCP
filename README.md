@@ -427,6 +427,12 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. `ss -tlnp`(dont forget sudo). Running as sudo gives process so you can directly find location with which or whereis and kill process and then delete file. Also must check for crontab. Check for crontab first. sudo pkill -f $process name and sudo rm /dir. ![image](https://github.com/user-attachments/assets/d541be11-b607-406b-9dc8-0d865103d414)
 
+    	1. alt commands
+        ```
+         apt install nmap -y && nmap -sVf -p- 127.0.0.1 && apt purge nmap -y
+         lsof -i -n -p
+         netstat -tulpn
+   
 
 	1. If a port has `127.0.0.1:$port` in its line, that means it's connected to loopback and isn't exposed. Otherwise, there should only be ports which are specified in the readme open (but there probably will be tons more).
 
