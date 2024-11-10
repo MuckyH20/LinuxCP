@@ -395,16 +395,57 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. Configure OpenSSH Server in `/etc/ssh/sshd_config`
 
-		```
-		Protocol 2
-		LogLevel VERBOSE
-		X11Forwarding no
-		MaxAuthTries 4
-		IgnoreRhosts yes
-		HostbasedAuthentication no
-		PermitRootLogin no
-		PermitEmptyPasswords no
-		```
+   ```
+    apt install openssh-server -y
+    service ssh enable
+    service ssh start
+    chown root:root /etc/ssh/sshd_config
+    chmod og-rwx /etc/ssh/sshd_config
+
+    /etc/ssh/sshd_config:
+        #KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+        #Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+        MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+        UsePrivilegeSeparation sandbox
+        Subsystem sftp  internal-sftp -f AUTHPRIV -l INFO
+        AllowTcpForwarding no
+        AllowStreamLocalForwarding no
+        GatewayPorts no
+        PermitTunnel no
+        UseDNS no
+        Compression no
+        TCPKeepAlive no
+        AllowAgentForwarding no
+        PermitRootLogin no
+        Port 8808
+        ForwardX11 no
+        Protocol 2
+        LogLevel INFO # Verbose
+        X11Forwarding no
+        MaxAuthTries 2
+        IgnoreRhosts yes
+        HostbasedAuthentication no
+        PermitEmptyPasswords no
+        PermitUserEnvironment no
+        ClientAliveInterval 300
+        ClientAliveCountMax 0
+        LoginGraceTime 60
+        Banner /etc/issue.net
+        ListenAddress 0.0.0.0
+        MaxSessions 2
+        MaxStartups 2
+        PasswordAuthentication yes/no ???????
+        AllowUsers <userlist>
+        AllowGroups <grouplist>
+        DenyUsers <userlist>
+        DenyGroups <grouplist>
+
+    service sshd restart
+    sshd -T
+    ufw allow 8808
+    systemctl reload sshd
+
+    ```
 
 	1. Harden Firefox
 
@@ -417,10 +458,64 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. Configure apache2 in `/etc/apache2/apache2.conf`
 
 		```
-		ServerSignature Off
+		apt install apache2
+		service apache2 start
+		service apache2 enable
+		ufw allow "Apache Full"
+		apt install libapache2-mod-security2
+		mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
+		useradd -r -s /bin/false apache
+		groupadd apache
+		useradd -G apache apache
+		chown -R apache:apache /opt/apache
+		chmod -R 750 /etc/apache2/*
+		/etc/apache2/apache2conf
 		ServerTokens Prod
+		ServerSignature Off
+		FileETag None
+		User apache 
+		Group apache
+		TraceEnable off
+		Timeout 60
+		Header always append X-Frame-Options SAMEORIGIN
+		Header set X-XSS-Protection "1; mode=block"
+		<Directory />
+		Options –Indexes -Includes
+		AllowOverride None
+		</Directory>
+		<LimitExcept GET POST HEAD>
+		deny from all
+		</LimitExcept>
+		# $EDITOR httpsd.conf
+		<Directory /opt/apache/htdocs>
+		Options None
+		</Directory>
+		<Directory />
+		Options -Indexes
+		AllowOverride None
+		</Directory>
+		service apache2 restart
 		```
-
+  	1. mySQL
+      
+      		```
+      		apt install mysql-server -y
+      		mysql_secure_installation
+      		service mysql enable
+      		service mysql start
+      		/etc/mysql/mysql.conf.d/mysqld.cnf
+      		bind-address = 127.0.0.1
+      		user = mysql
+      		port = 1542
+      		local_infile = 0
+      		symbolic-links = 0
+      		default_password_lifetime = 90
+      		service mysql restart
+		```
+   	1. Postfix
+   	   	```
+   	        /etc/postfix/main.cf:
+		inet_interfaces = loopback-only
 
 
 
