@@ -141,7 +141,8 @@ So far in this checklist you are mostly adding to text files, but remember there
      		sudo pam-auth-update
 
      		Select,with the spacebar, Notify on failed login attempts, and Enforce failed login attempt counter, and then select <Ok>
-     		
+     		![image](https://github.com/user-attachments/assets/f00b9bff-6cef-4dd5-9438-deef48485777)
+
 
 	1. Check minimum and maximum password ages in `/etc/shadow`
 
