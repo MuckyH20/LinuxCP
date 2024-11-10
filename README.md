@@ -381,6 +381,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		`$ echo "ALL" >> /etc/cron.deny`
 
+	1. install bum to check start up services
+
 1. Kernel Hardening
 
 	1. Edit the `/etc/sysctl.conf` file
