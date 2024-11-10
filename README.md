@@ -710,7 +710,13 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. Load new sysctl settings
 
 		`$ sysctl -p` or `sysctl --system`
-
+	1. Mounting
+	```
+	mount -o remountcnoexec /dev/shm
+	mount -o remount,nosuid /dev/shm1
+	mount -o remount,nodev /dev/shm
+	/etc/fstab:
+	none /run/shm tmpfs defaults,ro 0 0
 
 
 
