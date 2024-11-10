@@ -220,7 +220,13 @@ So far in this checklist you are mostly adding to text files, but remember there
 		$ apt-get -y upgrade
 		$ apt-get -y dist-upgrade
 		```
-
+  	1. Configure updates with software-properties-gtk
+  
+      		```
+      		Check for updates daily
+		Download and install automatically for security updates
+		Display immediatly for other updates
+		```
 	1. Enable automatic updates
 
 		1. Install `unattended-upgrades`
