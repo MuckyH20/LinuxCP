@@ -297,6 +297,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 		1. Look for hacking tools, games, and other unwanted/unneccessary packages
 
 			```
+   			$ apt list --installed | cut -d/ -f1
 			$ apt-cache policy $package
 			$ which $package
 			$ dpkg-query -l | grep -E '^ii' | less
