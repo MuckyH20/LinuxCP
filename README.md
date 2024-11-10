@@ -39,10 +39,21 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. If lightdm exists, disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm. Check for other display managers, as then you will have to harden those.
 
 		```
+		
+
+  		lock guest login:
+		This varies depending on the display manager, yours may be gdm (gnome display manager) 			or lightdm, do the steps accordingly
+		/etc/lightdm/lightdm.conf:
 		allow-guest=false
 		greeter-hide-users=true
 		greeter-show-manual-login=true
 		autologin-user=none
+		/etc/gdm/custom.conf:
+		AutomaticLoginEnable=true => AutomaticLoginEnable=false
+		AutomaticLogin=[user] => AutomaticLogin=
+		/etc/pam.d/gdm-password:
+		auth sufficient pam_succeed_if.so user ingroup nopasswdlogin => DELETE LINE
+
 		```
 
 	1. Compare `/etc/passwd` and `/etc/group` to the readme. Or use gui, prob easier. 
