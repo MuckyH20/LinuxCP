@@ -100,9 +100,9 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. Change password expiration requirements in `/etc/login.defs`
 
 		```
-		PASS_MAX_DAYS 30
-		PASS_MIN_DAYS 7
-		PASS_WARN_AGE 12
+		PASS_MAX_DAYS 90
+		PASS_MIN_DAYS 10
+		PASS_WARN_AGE 7
 		```
 
 	1. Add password history, minimum password length, and password complexity requirements in `/etc/pam.d/common-password`
