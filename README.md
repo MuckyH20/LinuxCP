@@ -25,6 +25,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 1. Do the Forensics Questions
 
 	Forensics questions can point you towards other vulnerabilities. Keep this in mind. (ex: a media file, find a hidden message, find a backdoor, etc)
+	https://gchq.github.io/CyberChef/
 
 
 
