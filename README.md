@@ -22,9 +22,13 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	Take notes on neccessary services, users, and any other important information.
 
+
+
 1. Do the Forensics Questions
 
 	Forensics questions can point you towards other vulnerabilities. Keep this in mind. (ex: a media file, find a hidden message, find a backdoor, etc)
+
+
 
 1. Account Configuration
 
@@ -87,6 +91,9 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. Wait to change user passwords until after password policy!
 
         1. In /etc/passwd for root, change /bin/bash to /sbin/nologin(double check competition reqs)
+
+   
+           
 
 1. Password Policy
 
@@ -159,6 +166,10 @@ So far in this checklist you are mostly adding to text files, but remember there
 		Change all passwords that dont meet the new requirements to CyberPatriot24$
 
 
+
+
+
+
 1. Check for unauthorized media
 
 	1. Find media files
@@ -178,6 +189,10 @@ So far in this checklist you are mostly adding to text files, but remember there
 		Turn on automatic backup
 		```
   	1. Check Important Files Perms(Ex: /etc/shadow) and change them to security standard with chmod(CIS Benchmarks)
+  
+
+
+
 
 1. Network Security
 
@@ -198,6 +213,12 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. Prevent IP Spoofing
 
 		`$ echo "nospoof on" >> /etc/host.conf`
+
+
+
+
+
+
 
 1. Package Management
 
@@ -296,6 +317,12 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		`telnet, rlogind, rshd, rcmd, rexecd, rbootd, rquotad, rstatd, rusersd, rwalld, rexd, fingerd, tftpd, telnet, snmp, netcat, nc`
 
+
+
+
+
+
+
 1. Service & Application Hardening
 
 	1. Configure OpenSSH Server in `/etc/ssh/sshd_config`
@@ -325,6 +352,13 @@ So far in this checklist you are mostly adding to text files, but remember there
 		ServerSignature Off
 		ServerTokens Prod
 		```
+
+
+
+
+
+
+  
 
 1. Backdoor Detection and Removal
 
@@ -359,6 +393,13 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 			`$ ss -l`
 
+
+
+
+
+
+
+
 1. Cron
 
 	1. Check your user's crontabs
@@ -382,6 +423,15 @@ So far in this checklist you are mostly adding to text files, but remember there
 		`$ echo "ALL" >> /etc/cron.deny`
 
 	1. install bum to check start up services
+
+
+
+
+
+
+
+
+
 
 1. Kernel Hardening
 
@@ -447,6 +497,15 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		`$ sysctl -p` or `sysctl --system`
 
+
+
+
+
+
+
+
+
+
 1. Antivirus
 
 	1. Install `clamav`, `chkrootkit`, and `rkhunter`
@@ -475,6 +534,15 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. Look through `/var/log/rkhunter.log`
 
+
+
+
+
+
+
+
+
+
 1. Audit the System with Lynis
 
 	1. Install
@@ -495,6 +563,17 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. Look through `/var/log/lynis-report.dat` for warnings and suggestions
 
 		`$ grep -E 'warning|suggestion' | sed -e 's/warning\[\]\=//g' | sed -e 's/suggestion\[\]\=//g'`
+
+
+
+
+
+
+
+
+
+
+
 
 1. Configure Auditd
 
