@@ -14,6 +14,8 @@ Enable pasting if not already enabled `sudo apt install open-vm-tools open-vm-to
 
 So far in this checklist you are mostly adding to text files, but remember there may be things to be removed within. For example, in pam/common-auth in 'auth [success=2 default=ignore] pam_unix.so nullok' nullok allows empty passwords to log in so it must be removed. You have to actually understand these services. STIGS and CIS have baselines. Gotta find which modules are and where they should be.
 
+Take snapshots if things break
+
 ## Checklist
 
 1. Read the readme
