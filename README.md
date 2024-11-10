@@ -116,10 +116,14 @@ So far in this checklist you are mostly adding to text files, but remember there
 		password    required    pam_unix.so obscure sha512 remember=12 use_authtok
 
 		# Enforces password complexity and policies
-		password    required    pam_pwquality.so reject_username enforce_for_root 				maxclassrepeat=3 maxsequence=3 dcredit=-1 ocredit=-1 lcredit=-1 ucredit=-1 minlen=16 difok=5 retry=3
+		password    required    pam_pwquality.so reject_username enforce_for_root maxclassrepeat=3 maxsequence=3 maxrepeat=3 dcredit=-1 ocredit=-1 lcredit=-1 ucredit=-1 minlen=16 difok=5 retry=3 use_authtok
 
 		# Enforces password history to prevent recent reuse of passwords
-		password    required    pam_pwhistory.so remember=12 enforce_for_root
+		password    required    pam_pwhistory.so remember=12 enforce_for_root use_authtok
+
+		# Log the last login and failed attempts for each user session
+		session     required    pam_lastlog.so showfailed
+
 
 
 
