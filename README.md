@@ -354,7 +354,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 1. Backdoor Detection and Removal
 
-	1. `ss -ln`
+	1. `ss -tlnp`(dont forget sudo). Running as sudo gives process so you can directly find location with which or whereis and kill process and then delete file. Also must check for crontab
 
 	1. If a port has `127.0.0.1:$port` in its line, that means it's connected to loopback and isn't exposed. Otherwise, there should only be ports which are specified in the readme open (but there probably will be tons more).
 
@@ -366,7 +366,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		1. Locate where the program is running from
 
-			`$ whereis $program`
+			`$ whereis $program`(if not showing could be cron)
 
 		1. Find what package owns the file
 
