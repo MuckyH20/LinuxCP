@@ -1,5 +1,6 @@
 #! /bin/bash
 
+# 1.https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/checkscript.sh#
 
 # Alright, I do not know how many times I've gone through this process
 # I keep writing, and writing, and rewriting my scripts and checklists.
