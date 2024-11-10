@@ -273,6 +273,11 @@ So far in this checklist you are mostly adding to text files, but remember there
 		```
 
 	1. Check `/etc/hosts` file for suspicious entries
+    		/etc/hosts.allow:
+		Remove suspicious entries
+		/etc/hosts.deny:
+		ALL: ALL
+
 
 	1. Prevent IP Spoofing
 
