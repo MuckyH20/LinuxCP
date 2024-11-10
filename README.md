@@ -113,7 +113,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		```
 		password	required	pam_unix.so obscure sha512 remember=12 use_authtok
-		password	required	pam_pwquality.so retry=3 minlen=10, difok=4 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
+		password	required	pam_pwquality.so reject_username enforce_for_root maxclassrepeat=5 maxsequence=5 dcredit=-1 ocredit=-1 lcredit=-1 ucredit=-1 minlen=16 difok=5 retry=3
+
 
 		```
 
