@@ -193,8 +193,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 	    # Convert to a comparable date format
 	    if [[ $(date -d "$last_change" +%s) -gt $(date +%s) ]]; then
  	       # If in the future, reset to today
-    	    chage -d 0 "$user"
- 	   fi
+    	       chage -d 0 "$user"
+ 	    fi
 	done
 
 
