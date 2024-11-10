@@ -226,7 +226,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 		Download and install automatically for security updates
 		Display immediatly for other updates
 	
-        1. sudo apt update & sudo apt upgrade
+        1. sudo apt update & sudo apt upgrade or gui
            
 		**Look for points for packages mentioned in the README, along with bash (if vulnerable to Shellshock), the kernel, sudo, and sshd**
 
