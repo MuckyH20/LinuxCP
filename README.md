@@ -254,13 +254,22 @@ So far in this checklist you are mostly adding to text files, but remember there
 	1. Enable and configure UFW
 
 		```
+		apt install ufw iptables -y
+  	
 		$ ufw default deny incoming
 		$ ufw default allow outgoing
 		$ ufw allow $port/service
 		$ ufw delete $rule
 		$ ufw logging on
 		$ ufw logging high
+  		$ ufw logging verbose
 		$ ufw enable
+
+  		/etc/default/ufw:
+		IPV6=no => IPV6=yes
+		Allow or deny connections for critical services or backdoors:
+		ufw [allow/deny] [program/port/ip address]
+
 		```
 
 	1. Check `/etc/hosts` file for suspicious entries
