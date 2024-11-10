@@ -106,7 +106,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		```
 		password	required	pam_unix.so obscure sha512 remember=12 use_authtok
-		password	required	pam_pwquality.so retry=3 minlen=13 difok=4 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
+		password	required	pam_pwquality.so retry=3 minlen=13(10, check current passwords to avoid lockout) difok=4 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
 
 		```
 
