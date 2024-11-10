@@ -209,8 +209,10 @@ So far in this checklist you are mostly adding to text files, but remember there
             fi
         done
 
+	
 
-
+1. lock root to physical consoles:
+   /etc/securetty => remove entries for any consoles that are not in a physically secure location
 
 
 1. Check for unauthorized media
