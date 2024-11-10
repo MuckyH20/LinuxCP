@@ -169,6 +169,33 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 		`$ chage -m $MIN -M $MAX $user`
 
+	1. Script
+	```
+    	#!/bin/bash
+
+	# Set default inactivity period to 30 days for new users
+	useradd -D -f 30
+
+	# Enforce 30-day inactivity for all existing users
+	for user in $(awk -F: '{ if ($3 >= 1000) print $1 }' /etc/passwd); do
+	    chage --inactive 30 "$user"
+	done
+
+	# Set non-login shell for system users (UID < 1000)
+	for user in $(awk -F: '{ if ($3 < 1000) print $1 }' /etc/passwd); do
+	    usermod -s /usr/sbin/nologin "$user"
+	done
+
+	# Ensure no user has a password change date in the future
+	for user in $(awk -F: '{ if ($3 >= 1000) print $1 }' /etc/passwd); do
+	    # Check the last password change date
+	    last_change=$(chage -l "$user" | grep "Last password change" | cut -d: -f2)
+	    # Convert to a comparable date format
+	    if [[ $(date -d "$last_change" +%s) -gt $(date +%s) ]]; then
+ 	       # If in the future, reset to today
+    	    chage -d 0 "$user"
+ 	   fi
+	done
 
 
 
