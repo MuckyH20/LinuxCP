@@ -276,7 +276,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 	1. Remove unauthorized and unused packages
 
-		1. Use deborphan to detect unneccessary packages
+		1. Use deborphan to detect unneccessary packages(didnt work find better)
 
 			1. Install deborphan
 
