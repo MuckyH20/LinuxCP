@@ -177,7 +177,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 		Apt-mark to see if manually installed or held
 		Turn on automatic backup
 		```
-  	1. Check Important Files Perms(Ex: /etc/shadow) and change them to security standard(CIS Benchmarks)
+  	1. Check Important Files Perms(Ex: /etc/shadow) and change them to security standard with chmod(CIS Benchmarks)
 
 1. Network Security
 
