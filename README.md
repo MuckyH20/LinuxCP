@@ -487,7 +487,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 		```
 		$ freshclam
 		$ freshclam --help
-  		$ clam scan
+  		$ clam scan(run from root dir) 
 		```
 
 	1. Run chkrootkit
