@@ -616,7 +616,15 @@ So far in this checklist you are mostly adding to text files, but remember there
 		`$ auditctl -e 1`
 
 	1. Configure with `/etc/audit/auditd.conf`
-
+```
+/etc/audit/audit.rules:
+-D
+-w / -p rwax -k filesystem_change
+-a always,exit -S all
+-e 2
+/etc/audit/auditd.conf:
+max_log_file_action=keep_log
+```
 ## Other Checklists
 
 [SANS Hardening the Linux System](https://www.sans.org/media/score/checklists/LinuxCheatsheet_2.pdf)
