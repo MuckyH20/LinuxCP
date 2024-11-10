@@ -41,7 +41,7 @@ So far in this checklist you are mostly adding to text files, but remember there
 		autologin-user=none
 		```
 
-	1. Compare `/etc/passwd` and `/etc/group` to the readme 
+	1. Compare `/etc/passwd` and `/etc/group` to the readme. Or use gui, prob easier. 
 
 		Look out for uid 0 and hidden users! if you find user with uid 0, edit the /etc/passwd file. If anyone had uid 0, means they are root that is not good!! You will need to edit /etc/passwd file.
 
