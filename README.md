@@ -226,39 +226,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 		Download and install automatically for security updates
 		Display immediatly for other updates
 	
-	1. Enable automatic updates
-
-		1. Install `unattended-upgrades`
-
-			`$ apt-get install unattended-upgrades`
-
-		1. Reconfigure `unattended-upgrades`
-
-			`$ dpkg-reconfigure unattended-upgrades`
-
-		1. Edit `/etc/apt/apt.conf.d/20auto-upgrades`
-
-			```
-			APT::Periodic::Update-Package-Lists "1";
-			APT::Periodic::Download-Upgradeable-Packages "1";
-			APT::Periodic::AutocleanInterval "7";
-			APT::Periodic::Unattended-Upgrade "1";
-			```
-
-		1. Edit `/etc/apt/apt.conf.d/50auto-upgrades`
-
-			```
-			Unattended-Upgrade::Allowed-Origins {
-				"${distro_id} stable";
-				"${distro_id} ${distro_codename}-security";
-				"${distro_id} ${distro_codename}-updates";
-			};
-
-			Unattended-Upgrade::Package-Blacklist {
-				"libproxy1v5";		# since the school filter blocks the word proxy
-			};
-			```
-
+        1. sudo apt update & sudo apt upgrade
+           
 		**Look for points for packages mentioned in the README, along with bash (if vulnerable to Shellshock), the kernel, sudo, and sshd**
 
 	1. Verify binaries match with `debsums`
