@@ -248,7 +248,7 @@ Use man pages on the fly to figure out where vulns could be hiding. ReadME has h
 		Apt-mark to see if manually installed or held
 		Turn on automatic backup
 		```
-1. Check Important Files Perms(/etc/gshadow /etc/passwd /etc/group /etc/shadow /etc/hosts /etc/hosts.deny /etc/hosts.allow) and change them to security standard with chmod(CIS Benchmarks)
+1. Check Important Files Perms(/etc/gshadow /etc/passwd /etc/group /etc/shadow /etc/hosts /etc/hosts.deny /etc/hosts.allow, ssh keys and more) and change them to security standard with chmod(CIS Benchmarks)
 
 Audit no world writable files
 `df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002`
