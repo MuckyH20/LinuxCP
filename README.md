@@ -420,6 +420,12 @@ Audit SGID executables
     service ssh start
     chown root:root /etc/ssh/sshd_config
     chmod og-rwx /etc/ssh/sshd_config
+   	/.ssh
+        -rw-------. 1 fred fred  565 Dec 12  2012 authorized_keys
+	-rw-------. 1 fred fred 2590 Dec 12  2012 id_rsa
+	-rw-r--r--. 1 fred fred  565 Dec 12  2012 id_rsa.pub
+	-rw-------. 1 fred fred   91 Dec 12  2012 known_hosts
+
 
     /etc/ssh/sshd_config:
         #KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
