@@ -74,9 +74,14 @@ function install() {
     done
 }
 
-function setup() {
-    apt install vim
+function purgePackages() {
+    for package in $1
+    do
+    	apt purge $package -y
+    done
+
 }
+
 
 function backup() {
 
@@ -98,6 +103,11 @@ function backup() {
         pause
     fi
 }
+
+function setup() {
+    apt install vim
+}
+
 
 function forensicQuestions() {
     ## Read the README and do Forensics questions
@@ -146,13 +156,6 @@ function installAuthorizedPackages() {
     pause
 }
 
-function purgePackages() {
-    for package in $1
-    do
-    	apt purge $package -y
-    done
-
-}
 
 function purgeUnauthorizedPackages() {
     ## Deleting unauthorized packages
