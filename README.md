@@ -624,6 +624,10 @@ Audit SGID executables
 
 	1. install bum to check start up services
 
+    	1. So gnome has its own kind of autostart for different services and programs. This is located in the ~/.config/autostart directory so deleting this will gain points.
+
+
+
 
 	1. Perms
 
