@@ -43,16 +43,18 @@ grep -R looks in all files in a dir
 
 		`$ passwd -l root`
 	1. sudo config
-    	# visudo:
-	Defaults    requiretty
-	Defaults    use_pty
-	Defaults	lecture="always"
-	Defaults	log_input,log_output
-	Defaults	passwd_tries=3
-	Defaults    passwd_timeout=1
-	/etc/pam.d/su:
-	auth required pam_wheel.so group=sudo
-
+    	```
+    	visudo:
+     	Defaults    requiretty
+     	Defaults    use_pty
+     	Defaults	lecture="always"
+     	Defaults	log_input,log_output
+     	Defaults	passwd_tries=3
+     	Defaults    passwd_timeout=1
+     	/etc/pam.d/su:
+     	auth required pam_wheel.so group=sudo
+   
+   
 	1. If lightdm exists, disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm. Check for other display managers, as then you will have to harden those.
 
 		```
