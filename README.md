@@ -606,7 +606,7 @@ Audit SGID executables
 
 		`$ crontab -e`
 
-	1. Check `/etc/cron.*/`, `/etc/crontab`, and `/var/spool/cron/crontabs/`
+	1. Check `/etc/cron.*/`, `/etc/crontab`, and `/var/spool/cron/`
 
 	1. Check init files in `/etc/init/` and `/etc/init.d/`
 
