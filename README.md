@@ -548,6 +548,9 @@ Audit SGID executables
    ps aux
    sudo kill -9 $PID
    then remove files with rm
+
+   Look for compromised binaries
+   grep -r ifconfig.me
   
 
 1. Backdoor Detection and Removal
