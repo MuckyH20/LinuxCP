@@ -420,7 +420,7 @@ Audit SGID executables
     service ssh start
     chown root:root /etc/ssh/sshd_config
     chmod og-rwx /etc/ssh/sshd_config
-   	/.ssh
+   	~/.ssh
         -rw-------. 1 fred fred  565 Dec 12  2012 authorized_keys
 	-rw-------. 1 fred fred 2590 Dec 12  2012 id_rsa
 	-rw-r--r--. 1 fred fred  565 Dec 12  2012 id_rsa.pub
