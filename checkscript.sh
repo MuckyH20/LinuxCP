@@ -158,7 +158,7 @@ function installAuthorizedPackages() {
 
 
 function purgeUnauthorizedPackages() {
-    ## Deleting unauthorized packages
+    ## Deleting unauthorized packages(CHANGE PACKAGES IF CRITICAL SERVICE PERSISTS)
     echo "Deleting unauthorized default packages"
     # fakeroot? sane? sane-utils? ppp?
     badDefaults=(aisleriot cups "cups-*" "*-cups" ftp vsftp gnome-mahjongg gnome-mines gnome-sudoku remmina "remmina*" samba sambashare "samba-*" tcpdump telnet tcpd netcat nc netcat "netcat*" smbd snmpd "openssh-*" openssh-server ssh avahi "avahi-*" slapd ldap "ldap-*" nfs nfs-common nfs-kernel-server rsync talk irc nfs-server "nfs-*" rpcbind bind9 apache2 dovecot smbd squid snmpd inetutiles-inetd)
