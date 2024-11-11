@@ -18,6 +18,8 @@ Take snapshots if things break
 
 Use clean image to baseline, like repos
 
+Use man pages
+
 ## Checklist
 
 1. Read the readme
