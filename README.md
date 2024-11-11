@@ -144,10 +144,7 @@ grep -R looks in all files in a dir
 		# here are the per-package modules (the "Primary" block)
 
 		# Enforces password complexity and policies
-		password    requisite                       pam_pwquality.so retry=3
 		password    required                        pam_pwquality.so reject_username 				enforce_for_root maxclassrepeat=5 maxsequence=5 maxrepeat=3 dcredit=-1 ocredit=-1 			lcredit=-1 ucredit=-1 minlen=10 difok=5 retry=3
-
-		password    [success=2 default=ignore]      pam_unix.so obscure use_authtok>
 
 		# Enforces strong password hashing and prevents password reuse
 		password    required                        pam_unix.so obscure sha512 remember=12 			use_authtok
@@ -164,7 +161,7 @@ grep -R looks in all files in a dir
 		# this avoids us returning an error just because nothing sets a success code
 		# since the modules above will each just jump around
 		password    required                        pam_permit.so
-		
+
 		# and here are more per-package modules (the "Additional" block)
 		password    optional                        pam_gnome_keyring.so
 
@@ -172,6 +169,7 @@ grep -R looks in all files in a dir
 
 		# Log the last login and failed attempts for each user session
 		session     required                        pam_lastlog.so showfailed
+
 
 
 
