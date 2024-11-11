@@ -186,9 +186,11 @@ function unauthorizedFiles() {
 function securityPackages() {
     ## Install security packages
     echo "Installing PAM packages"
-    apt install libpam-cracklib -y
+    apt upgrade libpam-runtime -y
+    apt upgrade libpam-modules -y
     apt install libpam-tmpdin -y
     apt install libpam-usb -y
+    apt install libpam-pwquality -y
     pause
 }
 
