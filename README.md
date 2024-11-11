@@ -836,7 +836,7 @@ Audit SGID executables
 
 	1. Look through `/var/log/rkhunter.log`
 
-	1. Look at /etc/modules-load.d/ for systemD modules on start up, .ko files like dll
+	1. Look at /etc/modules-load.d/ for systemD modules on start up, .ko files like dll. Remove with rmmod.
 
 
 
