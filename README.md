@@ -551,6 +551,7 @@ Audit SGID executables
 
    Look for compromised binaries
    grep -r ifconfig.me
+   sudo apt reinstall
   
 
 1. Backdoor Detection and Removal
