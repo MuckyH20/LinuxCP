@@ -16,6 +16,8 @@ So far in this checklist you are mostly adding to text files, but remember there
 
 Take snapshots if things break
 
+Use clean image to baseline, like repos
+
 ## Checklist
 
 1. Read the readme
