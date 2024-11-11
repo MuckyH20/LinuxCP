@@ -1,5 +1,9 @@
 #! /bin/bash
 
+#CIS Hardening Scripts. Snapshot before running
+#https://github.com/xMo3gza/Ubuntu_20.04_CIS_Hardening_Script/blob/main/Ubuntu_20.04_Hardening_Script.bash
+#https://github.com/kenneth-karlsson/Cisecurity/blob/master/cis2004.sh
+
 # 1.https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/checkscript.sh#
 
 # Alright, I do not know how many times I've gone through this process
