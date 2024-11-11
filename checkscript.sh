@@ -105,7 +105,7 @@ function backup() {
 }
 
 function setup() {
-    apt install vim
+    apt install micro
 }
 
 
