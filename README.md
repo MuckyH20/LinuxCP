@@ -836,7 +836,7 @@ Audit SGID executables
 
 	1. Look through `/var/log/rkhunter.log`
 
-
+	1. Look at /etc/modules-loaded.d/ for systemD modules on start up
 
 
 
