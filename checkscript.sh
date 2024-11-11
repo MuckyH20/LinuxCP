@@ -1,8 +1,8 @@
 #! /bin/bash
 
 #CIS Hardening Scripts. Snapshot before running
-#https://github.com/xMo3gza/Ubuntu_20.04_CIS_Hardening_Script/blob/main/Ubuntu_20.04_Hardening_Script.bash
-#https://github.com/kenneth-karlsson/Cisecurity/blob/master/cis2004.sh
+#https://github.com/Nima-hasanzadeh/CIS-Ubuntu-22/blob/main/Pliers.bash
+#https://github.com/search?q=CIS+Ubuntu+Hardening+Script&type=repositories&s=updated&o=desc
 
 # 1.https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/checkscript.sh#
 
