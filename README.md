@@ -18,7 +18,7 @@ Take snapshots if things break
 
 Use clean image to baseline, like repos
 
-Use man pages
+Use man pages on the fly to figure out where vulns could be hiding. ReadME has hints
 
 ## Checklist
 
