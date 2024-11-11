@@ -330,6 +330,7 @@ Audit SGID executables
 		$ apt-get update
 		$ apt-get -y upgrade
 		$ apt-get -y dist-upgrade
+  		$ apt full-upgrade ONLY in special cases
 		```
   	1. Configure updates with software-properties-gtk
   		Check for updates daily
