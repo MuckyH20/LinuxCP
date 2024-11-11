@@ -544,8 +544,10 @@ Audit SGID executables
 
 
 
-
-
+1. Remove uneccessary proccesses with
+   ps aux
+   sudo kill -9 $PID
+   then remove files with rm
   
 
 1. Backdoor Detection and Removal
