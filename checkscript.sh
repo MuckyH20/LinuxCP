@@ -5,6 +5,7 @@
 #https://github.com/search?q=CIS+Ubuntu+Hardening+Script&type=repositories&s=updated&o=desc
 #https://github.com/konstruktoid/hardening
 #https://github.com/algeriabot/cyberpatriot/tree/main
+#https://github.com/ansible-lockdown/UBUNTU22-CIS-Audit/tree/devel
 
 # 1.https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/checkscript.sh#
 
