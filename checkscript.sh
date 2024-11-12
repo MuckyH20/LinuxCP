@@ -4,6 +4,7 @@
 #https://github.com/Nima-hasanzadeh/CIS-Ubuntu-22/blob/main/Pliers.bash
 #https://github.com/search?q=CIS+Ubuntu+Hardening+Script&type=repositories&s=updated&o=desc
 #https://github.com/konstruktoid/hardening
+#https://github.com/algeriabot/cyberpatriot/tree/main
 
 # 1.https://codeberg.org/easw/cyberpatriot/src/branch/main/cyberpatriots/checkscript.sh#
 
