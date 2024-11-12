@@ -22,6 +22,8 @@ Use man pages on the fly to figure out where vulns could be hiding. ReadME has h
 
 grep -R looks in all files in a dir
 
+avoid guis as cmd is same on distros
+
 ## Checklist
 
 1. Read the readme
