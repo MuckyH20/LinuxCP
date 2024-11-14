@@ -438,6 +438,21 @@ Audit SGID executables
 
 1. Service & Application Hardening
 
+   Apache
+ nginx
+PostgreSQL
+MySQL
+SSH
+MSSQL
+VNC
+LAMP Server (Linux Apache Mysql PHP) and variations
+Wordpress
+SMB
+FTP
+DNS
+Samba 
+Mail
+
 	1. Configure OpenSSH Server in `/etc/ssh/sshd_config`
 
    ```
