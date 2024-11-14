@@ -6,7 +6,7 @@ Forensic Questions
 Checklist
 Baseline
 
-Utilize GPT + STIG combo
+Utilize STIG(Main driving force) + CIS and GPT combo
 
 
 
