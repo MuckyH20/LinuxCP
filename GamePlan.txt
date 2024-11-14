@@ -4,7 +4,7 @@ Current
 README
 Forensic Questions
 Checklist
-Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited.)
+Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited. Or third party app tripwire for files, something else for perms)
 
 Utilize STIG(Main driving force) + CIS and GPT combo
 
