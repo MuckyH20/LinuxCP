@@ -364,6 +364,10 @@ Audit SGID executables
   		Check for updates daily
 		Download and install automatically for security updates
 		Display immediatly for other updates
+
+ 	1. Configure unattended upgrades
+     		https://wiki.debian.org/UnattendedUpgrades
+     		https://help.ubuntu.com/community/AutomaticSecurityUpdates
 	
         1. sudo apt update & sudo apt upgrade or gui to update apps(firefox, mail, etc)
            
