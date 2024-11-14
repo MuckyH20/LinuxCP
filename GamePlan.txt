@@ -6,6 +6,7 @@ Forensic Questions
 Checklist
 Baseline
 
+Utilize GPT + STIG combo
 
 
 
