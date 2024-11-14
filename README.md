@@ -138,7 +138,7 @@ avoid guis as cmd is same on distros
   		umask 027
 		```
 
-	1. Add password history, minimum password length, and password complexity requirements in `/etc/pam.d/common-password`
+	1. Add password history, minimum password length, and password complexity requirements in `/etc/pam.d/common-password`(at end check hardening in other 3 main pam files, where passwd directing, etc)
 
 		**INSTALL PWQUALITY PRIOR TO CHANGING COMMON-PASSWORD**(make sure everything is installed): 
 
