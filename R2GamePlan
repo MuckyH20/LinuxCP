@@ -17,6 +17,6 @@ For service hardening simply search up * hardening
 
 
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
-Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited. Or third party app tripwire for files and files perms)
+Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited. Or third party app tripwire/aide for files and files perms)
 Utilize STIG(Main driving force) + CIS and GPT combo
 Look through file system, use your intuition. Practice images would create this intuition.
