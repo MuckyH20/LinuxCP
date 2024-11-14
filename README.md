@@ -44,6 +44,14 @@ avoid guis as cmd is same on distros
 	1. Lock the root account from direct log in. Possibly just change shell to nologin, comp reqs.
 
 		`$ passwd -l root`
+		```
+  		ALTERNATIVES:
+  		usermod -s /bin/false root
+		usermod -L root
+		usermod -g 0 root
+		lock root to physical consoles:
+		/etc/securetty => remove entries for any consoles that are not in a physically secure location
+
 	1. sudo config
     	```
     	visudo:
@@ -250,9 +258,6 @@ avoid guis as cmd is same on distros
         done
 
 	
-
-1. lock root to physical consoles:
-   /etc/securetty => remove entries for any consoles that are not in a physically secure location
 
 
 1. Check for unauthorized media
