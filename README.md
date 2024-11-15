@@ -595,7 +595,7 @@ Mail
 
 
 1. Remove uneccessary proccesses with
-   ps aux
+   ps aux: 
    sudo kill -9 $PID
    then remove files with rm
 
