@@ -598,6 +598,8 @@ Mail
    ps auxf: 
    sudo kill -9 $PID
    then remove files with rm. Look for exe under the pid dir in the proc dir. It is a symbolic link to the binary.
+   If cmdline symb link in /proc pid is suspicious like /bin/nice -lvnp 444, netcat flags look like that so suspicious <- example. 
+   status shows ppid, parent process id
 
    Look for compromised binaries
    grep -r ifconfig.me
