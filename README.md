@@ -586,6 +586,7 @@ Mail
         MaxSessions 2
         MaxStartups 2
         PasswordAuthentication yes/no ??????? depends on read me if asking for key auth only
+	PubkeyAuthentication yes/no same as above
         AllowUsers <userlist>
         AllowGroups <grouplist>
         DenyUsers <userlist>
