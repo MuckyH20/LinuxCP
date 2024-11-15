@@ -426,7 +426,7 @@ Audit SGID executables
 
 		1. Ensure all services are required
 
-			`service --status-all or systemctl list-units --type=service --state=active`
+			`service --status-all or systemctl list-units --type=service --state=active  systemctl status to check if start on boot`
 			`sudo systemctl disable --now $service`
 
 		BAD STUFF
