@@ -625,6 +625,8 @@ Mail
 		1. Find the program using the port
 
 			`$ lsof -i $port`
+			or
+			`ps auxf | grep PID`
 
 		1. Locate where the program is running from
 
