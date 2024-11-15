@@ -20,7 +20,7 @@ Use clean image to baseline, like repos
 
 Use man pages on the fly to figure out where vulns could be hiding. ReadME has hints
 
-grep -R looks in all files in a dir
+grep -R looks in all files in a dir. Ex: grep -r "nc -lvnp 444"
 
 avoid guis as cmd is same on distros
 
