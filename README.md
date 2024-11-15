@@ -24,6 +24,8 @@ grep -R looks in all files in a dir. Ex: grep -r "nc -lvnp 444" to find netcat
 
 avoid guis as cmd is same on distros
 
+Focus on attack surface minimization. Cybersecuity inuition and fundamentals
+
 ## Checklist
 
 1. Read the readme
