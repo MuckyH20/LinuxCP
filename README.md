@@ -817,7 +817,7 @@ Mail
 
 1. Kernel Hardening
 
-	1. Edit the `/etc/sysctl.conf` file
+	1. Edit the `/etc/sysctl.conf` file(might be more)
 
 		```
 		fs.file-max = 65535
@@ -881,6 +881,7 @@ Mail
 		fs.protected_hardlinks=1
 		fs.protected_symlinks=1
 		fs.suid_dumpable=0
+  		kernel.kptr_restrict=2
 		kernel.exec-shield=1
 		kernel.randomize_va_space=2
 		net.ipv4.ip_forward=0
