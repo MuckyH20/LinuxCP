@@ -597,7 +597,7 @@ Mail
 1. Remove uneccessary proccesses with
    ps auxf: 
    sudo kill -9 $PID
-   then remove files with rm
+   then remove files with rm. Look for exe under the pid dir in the proc dir. It is a symbolic link to the binary.
 
    Look for compromised binaries
    grep -r ifconfig.me
