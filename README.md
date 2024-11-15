@@ -449,6 +449,80 @@ Audit SGID executables
 
 1. Service & Application Hardening
 
+   
+For all:
+Risk mitigation:
+
+Network traffic encryption
+http vs https
+TLS is the standard, ssl is old
+Up to date ciphersuites to have up to date encryption(ex. ECDHE-ECDSA-AES128-GCM-SHA256)
+Mozilla SSL Generator is good for all this
+Be careful as backwards compatibility has to be present, customers with older pcs need to use so dont be too restrictive in that way
+
+
+Access control
+	Authentication
+	Scenario dependent
+ 	Authenetication "schemes"
+  		Common: Public-Key: used for employees
+    		Passwprd
+      			Compares with local password hashes
+	 		poor password hygeine and brute force attacks, strict password reqs
+    		Kerberos not used in comp but companies use
+      		PAM: /etc/pam.d/service
+ 
+ 	Root Level Access
+		Discourage highly pemissive access completely
+  		Thats it
+
+    		Instead elevate using appropriate program command, like sudo in like openssh server ex
+   	
+  	Anonymous Access
+   		Scenario dependent(Something like a file server would want but not openssh)
+     		fINE TUNE PERMISSIONS BASED ON USE CASE
+       			Public file server should be read only as opposed to read-write, write only
+	  	Authentication: password based (for anon users)
+     		
+   		
+
+   System configuration
+   	Daemon privligges
+    		Processes are tied to a user
+      			Background processes spawned by SystemD = Daemon
+	 		inherit all perms -> least permissive user (in.service)
+    		Processes are spawned by services
+		Overall check systemD service config file for crit service
+
+      
+    	Filesystem privligges
+     		Only admin should configure server
+       			Be aware of parent/child director{ies}/path{s}
+	  	Data directory access control
+    			"data" directories: databases, file shares(ex webserver public root dirwwwhtml)
+     
+     	Debug information
+      		Errors should not be shown to customers
+		Knowing exact software version helps identify vulnerabilities
+  			CVES corrsoposding to versions -> known exploits for old software
+     	Exteranally, debug as little as possible
+      	Internally, log as much as possible
+      		
+
+Incident Response:
+Logging
+	Highest verbosity logging
+	usually stored in log{s}/
+ 	Permissions: superuser + darmon user
+
+  Rules of thumb:
+  Externally: reduce attack service
+  Internaly:
+  	Principle of least privlege
+   	Prepare for an incident
+
+
+Examples:
    Apache
  nginx
 PostgreSQL
