@@ -724,6 +724,8 @@ Mail
 
 			`$ ss -l`
 
+   		1. .so files are sus. ufw enable will tell you if something is world writable, look in there. usually they have connect in them or socket
+
 
 
 
