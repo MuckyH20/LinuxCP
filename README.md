@@ -653,7 +653,7 @@ Mail
 
 
 
-
+1. Check exec lines for debug mode and capability for root privlige for process  in. Generally baseline to see if they are tampered with. User and group may be set to root. usr/lib/systemd/system networkmanager? systemd.unit
 
 
 
