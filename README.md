@@ -585,7 +585,7 @@ Mail
         ListenAddress 0.0.0.0
         MaxSessions 2
         MaxStartups 2
-        PasswordAuthentication yes/no ???????
+        PasswordAuthentication yes/no ??????? depends on read me if asking for key auth only
         AllowUsers <userlist>
         AllowGroups <grouplist>
         DenyUsers <userlist>
