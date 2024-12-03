@@ -680,7 +680,7 @@ DenyGroups <grouplist>
     pause
 }
 
-## Configure mysql database server
+## Configure mysql database serverd
 function mysql-server () {
     echo "Configuring mysql-server"
     echo "This will script may reinstall mysql, reinstalling will delete the configuration files of the current set up, these files have been saved to your current directory"
