@@ -15,6 +15,10 @@ Ones related to stuff easily visible like an anauthorized app on the desktop
 Now you have a good idea of what is there to be fixed on your system. Do these last.
 For service hardening simply search up * hardening
 
+Konstrukoid script
+cp script
+peass script
+
 
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
 Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited. Or third party app aide for files and files perms) In terms of baselining comparing ports is another big thing.
