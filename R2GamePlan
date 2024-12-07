@@ -6,6 +6,7 @@
 
 Current
 README
+Broken componenets
 Forensic Questions
 
 List every possible vuln on the readme and any obvious ones glaring out at you
@@ -18,6 +19,7 @@ For service hardening simply search up * hardening
 Konstrukoid script
 cp script
 peass script
+cis check
 
 
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
