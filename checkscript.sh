@@ -963,7 +963,7 @@ case $(uname -m) in
     "x86_64") systembit=64;;
 esac
 
-read -p "What version of ubuntu are you using (14/16/18/20): " distro
+read -p "What version of ubuntu are you using (14/16/18/22): " distro
 if [ $distro == "12" ]
 then
     curl http://releases.ubuntu.com/precise/ubuntu-12.04.5-desktop-amd64.manifest | cut -f1 > defaults
@@ -977,7 +977,7 @@ elif [ $distro == "18" ]
 then
      curl http://releases.ubuntu.com/bionic/ubuntu-18.04.5-desktop-amd64.manifest | cut -f1 > defaults
 else
-    curl http://releases.ubuntu.com/bionic/ubuntu-18.04.5-desktop-amd64.manifest | cut -f1 > defaults
+    curl https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.manifest | cut -f1 > defaults
 fi
 
 read -p "What is the name of your main user account: " mainUser
