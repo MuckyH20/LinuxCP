@@ -36,7 +36,7 @@ Focus on attack surface minimization. Cybersecuity inuition and fundamentals
 
 1. Do the Forensics Questions
 
-	Forensics questions can point you towards other vulnerabilities. Keep this in mind. (ex: a media file, find a hidden message, find a backdoor, etc)
+	Forensics questions can point you towards other vulnerabilities. Keep this in mind. (ex: a media file, find a hidden message, find a backdoor(could be pam edit or generally without port), etc)
 	https://gchq.github.io/CyberChef/
 
 
