@@ -23,9 +23,10 @@ Forensic Questions
 Konstrukoid script
 peass script
 cis check
-For service hardening simply search up * hardening
+
 xxx
 
+For service hardening simply search up * hardening
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
 Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited. Or third party app aide for files and files perms) In terms of baselining comparing ports is another big thing.
 Utilize STIG(Main driving force) + CIS and GPT combo
