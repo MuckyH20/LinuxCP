@@ -1008,7 +1008,7 @@ firewallConfig
 findingBackdoors
 hostFileConfig
 serviceConfig
-ask "Is openssh-server a critical service" openssh-server
+#ask "Is openssh-server a critical service" openssh-server
 ask "Is mysql-server a critical service" mysql-server
 ask "Is apache2 a critical service" apache2
 ask "Is postfix a critcal service" postfix
