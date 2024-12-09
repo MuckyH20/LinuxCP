@@ -18,6 +18,13 @@ Konstrukoid script
 edit out conflicts in cp script
 run cp script
 
+harden services
+my sql and php
+https://github.com/Wes-Bl/Cyberpatriot-Wiki/wiki/Comprehensive-Checklist-for-Linux
+Firefox
+https://github.com/simeononsecurity/FireFox-STIG-Script
+ftp
+https://hackviser.com/tactics/hardening/vsftpd
 
 
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
