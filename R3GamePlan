@@ -14,14 +14,16 @@ Ones related to stuff easily visible like an anauthorized app on the desktop
 Now you have a good idea of what is there to be fixed on your system. Do these last.
 
 xxx
-
+cp script up to forensics part
 README
 Broken componenets
 Forensic Questions
 
 
 Konstrukoid script
-cp script
+
+edit out conflicts in cp script
+run cp script
 
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
 For service hardening simply search up * hardening
