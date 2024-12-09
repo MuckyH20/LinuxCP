@@ -25,6 +25,10 @@ Konstrukoid script
 edit out conflicts in cp script
 run cp script
 
+ftp 
+https://github.com/simeononsecurity/FireFox-STIG-Script
+
+
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
 For service hardening simply search up * hardening
 
