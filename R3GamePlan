@@ -6,13 +6,6 @@
 
 Current
 
-
-List every possible vuln on the readme and any obvious ones glaring out at you
-Ones related to forensics
-ones related to README
-Ones related to stuff easily visible like an anauthorized app on the desktop
-Now you have a good idea of what is there to be fixed on your system. Do these last.
-
 xxx
 cp script up to forensics part
 README
@@ -27,13 +20,12 @@ run cp script
 
 
 
-
 Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
-For service hardening simply search up * hardening
+For additional service hardening simply search up * hardening
 
 peass script
 cis check
-
+Use cypat gpt and google and ss64 for research
 
 Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited. Or third party app aide for files and files perms) In terms of baselining comparing ports is another big thing.
 Utilize STIG(Main driving force) + CIS and GPT combo
@@ -44,4 +36,4 @@ xxx
 
 
 
-Use cypat gpt and google and ss64 for research
+
