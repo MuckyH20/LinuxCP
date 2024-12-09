@@ -26,6 +26,8 @@ avoid guis as cmd is same on distros
 
 Focus on attack surface minimization. Cybersecuity inuition and fundamentals
 
+ssh specific key perms if readme asks
+
 ## Checklist
 
 1. Read the readme
