@@ -505,6 +505,16 @@ function sudoConfig() {
     echo "
     Check the files in the /etc/sudoers.d/ directory the script will automatically take you through these files:
     "
+    echo "	1. Check `/etc/sudoers` and `/etc/sudoers.d` for unauthorized users and groups.
+
+		1. Remove any instances of `nopasswd` and `!authenticate`, these allow sudo use without authentication
+
+		1. Any commands listed can be run without a password (ex: /bin/chmod)
+
+		1. Group lines are preceded by `%`
+
+     		1. General file check if unauth user has sudo access like user1 ALL=(ALL) ALL "
+    
     ls /etc/sudoers.d/
     pause
     editdir /etc/sudoers.d/
