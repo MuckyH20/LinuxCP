@@ -31,6 +31,9 @@ if ping not working so cant download anything add nameserver 8.8.8.8
 nameserver 1.1.1.1
 in /etc/resolv.conf
 
+Path variable 
+
+
 ## Checklist
 
 -
