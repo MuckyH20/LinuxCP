@@ -37,6 +37,7 @@ sudo apt update
 
 Path variable 
 
+look at nondefaultfiles if stuck
 
 ## Checklist
 
