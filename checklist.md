@@ -36,38 +36,7 @@ remember to restart things to get points, systemctl, lightdm etc
 
 
 
-	1. Delete unauthorized users
 
-		```
-		$ userdel -r $user
-		$ groupdel $user
-		```
-
-	1. Add users
-
-		```
-		$ useradd -G $group1,$group2 $user
-		$ passwd $user
-		```
-  	
-
-	1. Remove unauthorized users from adm and groups
-
-		`$ gpasswd -d $user $group`
-
-	1. Add authorized users to groups
-
-		`$ gpasswd -a $user $group`
-
-	1. Check `/etc/sudoers` and `/etc/sudoers.d` for unauthorized users and groups.
-
-		1. Remove any instances of `nopasswd` and `!authenticate`, these allow sudo use without authentication
-
-		1. Any commands listed can be run without a password (ex: /bin/chmod)
-
-		1. Group lines are preceded by `%`
-
-     		1. General file check if unauth user has sudo access like user1 ALL=(ALL) ALL
 
 	1. Wait to change user passwords until after password policy!
 
