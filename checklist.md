@@ -30,74 +30,11 @@ Focus on attack surface minimization. Cybersecuity inuition and fundamentals
 
 ## Checklist
 
-1. Read the readme
-
-	Take notes on neccessary services, users, and any other important information.
-
-
-
-1. Do the Forensics Questions
-
-	Forensics questions can point you towards other vulnerabilities. Keep this in mind. (ex: a media file, find a hidden message, find a backdoor(could be pam edit or generally without port), etc)
-	https://gchq.github.io/CyberChef/
-
-
-
-1. Account Configuration
-
-	1. Lock the root account from direct log in. Possibly just change shell to nologin, comp reqs.
-
-		`$ passwd -l root`
-		```
-  		ALTERNATIVES:
-  		usermod -s /bin/false root
-		usermod -L root
-		usermod -g 0 root
-		lock root to physical consoles:
-		/etc/securetty => remove entries for any consoles that are not in a physically secure location
-
-	1. sudo config
-    	```
-    	visudo:
-     	Defaults    requiretty
-     	Defaults    use_pty
-     	Defaults	lecture="always"
-     	Defaults	log_input,log_output
-     	Defaults	passwd_tries=3
-     	Defaults    passwd_timeout=1
-     	/etc/pam.d/su:
-     	auth required pam_wheel.so group=sudo
+-
    
-   
-	1. If lightdm exists, disable the guest account in `/etc/lightdm/lightdm.conf` and then restart your session with sudo restart lightdm. Check for other display managers, as then you will have to harden those.
+remember to restart things to get points, systemctl, lightdm etc
 
-		```
-		
 
-  		lock guest login:
-		This varies depending on the display manager, yours may be gdm (gnome display manager) 			or lightdm, do the steps accordingly
-		/etc/lightdm/lightdm.conf:
-		allow-guest=false
-		greeter-hide-users=true
-		greeter-show-manual-login=true
-		autologin-user=none
-		/etc/gdm/custom.conf:
-		AutomaticLoginEnable=true => AutomaticLoginEnable=false
-		AutomaticLogin=[user] => AutomaticLogin=
-		/etc/pam.d/gdm-password:
-		auth sufficient pam_succeed_if.so user ingroup nopasswdlogin => DELETE LINE
-
-		```
-
-	1. Compare `/etc/passwd` and `/etc/group` to the readme. Or use gui, prob easier. 
-
-		Look out for uid 0 and hidden users! if you find user with uid 0, edit the /etc/passwd file. If anyone had uid 0, means they are root that is not good!! You will need to edit /etc/passwd file.
-
-        1. Find unauth users/admins/groups
-                look for unauth admin: `getent group | grep sudo`
-           	not comprehensive, group privs given in sudoers`getent group | grep :0`
-           	get unauth root: `getent passwd | grep :0`
-                get all users: `getent passwd | grep /home`
 
 	1. Delete unauthorized users
 
