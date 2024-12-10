@@ -1005,13 +1005,13 @@ read -p "What is the name of your main user account: " mainUser
 backup
 setup
 forensicQuestions
-media
 autoUpdates
 fixSources
 updateSystem
 installAuthorizedPackages
 purgeUnauthorizedPackages
 unauthorizedFiles
+media
 securityPackages
 #pamConfiguration
 #passwordExpiration
