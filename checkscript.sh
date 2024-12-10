@@ -115,6 +115,9 @@ function setup() {
 function forensicQuestions() {
     ## Read the README and do Forensics questions
     echo "Read the README then do all of the Forensics questions, then fix any insecurities in the forensics questions BEFORE CONTINUING"
+    echo "Take notes on neccessary services, users, and any other important information."
+    echo "Forensics questions can point you towards other vulnerabilities. Keep this in mind. (ex: a media file, find a hidden message, find a backdoor(could be pam edit or generally without port), etc)" 
+    echo "https://gchq.github.io/CyberChef/"
     pause
 }
 
