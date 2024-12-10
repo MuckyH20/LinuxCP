@@ -2,8 +2,9 @@
 # SixSwords Linux Checklist
 
 ## Notes
+MISC
 
-Preferred text editor: sudo apt install micro
+W theme
 ^e set colorscheme material-tc
 
 Assume root permissions are needed for most commands. You can use `sudo` or become root with `su`.
@@ -26,7 +27,6 @@ avoid guis as cmd is same on distros
 
 Focus on attack surface minimization. Cybersecuity inuition and fundamentals
 
-ssh specific key perms if readme asks
 
 ## Checklist
 
@@ -540,9 +540,10 @@ DNS
 Samba 
 Mail
 
-	1. Configure OpenSSH Server in `/etc/ssh/sshd_config`
+	1. Configure OpenSSH Server in `/etc/ssh/sshd_config(ssh specific key perms if readme asks or crit service)`
 
    ```
+
     apt install openssh-server -y
     service ssh enable
     service ssh start
