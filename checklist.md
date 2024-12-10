@@ -36,101 +36,8 @@ remember to restart things to get points, systemctl, lightdm etc
 
 
 
-
-
-	1. Wait to change user passwords until after password policy!
-
-        1. In /etc/passwd for root, change /bin/bash to /sbin/nologin(double check competition reqs)
-
    
            
-
-1. Password Policy
-
-	1. Change password expiration requirements in `/etc/login.defs`
-
-		```
-		PASS_MAX_DAYS 90
-		PASS_MIN_DAYS 10
-		PASS_WARN_AGE 7
-  		umask 027
-		```
-
-	1. Add password history, minimum password length, and password complexity requirements in `/etc/pam.d/common-password`(at end check hardening in other 3 main pam files, where passwd directing, etc)
-
-		**INSTALL PWQUALITY PRIOR TO CHANGING COMMON-PASSWORD**(make sure everything is installed): 
-
-		`$ apt install libpam-pwquality`
-
-		```
-		# here are the per-package modules (the "Primary" block)
-
-		# Enforces password complexity and policies
-		password    required                        pam_pwquality.so reject_username 				enforce_for_root maxclassrepeat=5 maxsequence=5 maxrepeat=3 dcredit=-1 ocredit=-1 			lcredit=-1 ucredit=-1 minlen=10 difok=5 retry=3
-
-		# Enforces strong password hashing and prevents password reuse
-		password    required                        pam_unix.so obscure sha512 remember=12 			use_authtok
-
-		# Enforces password history to prevent recent reuse of passwords
-		password    required                        pam_pwhistory.so remember=12 				enforce_for_root use_authtok
-
-		password    sufficient                      pam_sss.so use_authtok
-
-		# here's the fallback if no module succeeds
-		password    requisite                       pam_deny.so
-
-		# prime the stack with a positive return value if there isn't one already;
-		# this avoids us returning an error just because nothing sets a success code
-		# since the modules above will each just jump around
-		password    required                        pam_permit.so
-
-		# and here are more per-package modules (the "Additional" block)
-		password    optional                        pam_gnome_keyring.so
-
-		# end of pam-auth-update config
-
-		# Log the last login and failed attempts for each user session
-		session     required                        pam_lastlog.so showfailed
-
-
-
-
-
-
-		```
-
-	1. Enforce account lockout policy in `/etc/pam.d/common-auth`
-
-		**MUST COME FIRST**
-
-	   	```
-     		sudo touch /usr/share/pam-configs/faillock
-     		sudo micro /usr/share/pam-configs/faillock
-
-     		In /usr/share/pam-configs/faillock type the following text:
-		Name: Enforce failed login attempt counter
-		Default: no
-		Priority: 0
-		Auth-Type: Primary
-		Auth:
-		    [default=die] pam_faillock.so authfail
-		    sufficient pam_faillock.so authsucc
-
-     		sudo touch /usr/share/pam-configs/faillock_notify
-     		sudo micro /usr/share/pam-configs/faillock_notify
-
-     		In /usr/share/pam-configs/faillock_notify type the following text:
-		Name: Notify on failed login attempts
-		Default: no
-		Priority: 1024
-		Auth-Type: Primary
-		Auth:
-		    requisite pam_faillock.so preauth
-
-     		sudo pam-auth-update
-
-     		Select,with the spacebar, Notify on failed login attempts, and Enforce failed login attempt counter, and then select <Ok>
-     		![image](https://github.com/user-attachments/assets/f00b9bff-6cef-4dd5-9438-deef48485777)
 
 
 	1. Check minimum and maximum password ages in `/etc/shadow`
@@ -170,15 +77,7 @@ remember to restart things to get points, systemctl, lightdm etc
 	
 
 
-1. Check for unauthorized media
 
-	1. Find media files
-
-		`$ find / -iname "*.$extension" or locate *$extension`
-
-	1. Remove media files, backdoors, PII files, etc
-
-		`$ ls -alR /home/*/*` 
 
 		**There also may be unauthorized network shares not under the /home directory**
 	1. Files/directories
@@ -188,69 +87,11 @@ remember to restart things to get points, systemctl, lightdm etc
 		Apt-mark to see if manually installed or held
 		Turn on automatic backup
 		```
-1. Check Important Files Perms(/etc/gshadow /etc/passwd /etc/group /etc/shadow /etc/hosts /etc/hosts.deny /etc/hosts.allow, ssh keys and more) and change them to security standard with chmod(CIS Benchmarks)
-
-Audit no world writable files
-`df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002`
-Audit no unowned files or directories
-`df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser`
-`#df --local -P | awk {'if (NR!=1) print $6'} | xargs -r '{}' find '{}' -xdev -nogroup`
-Audit no ungropued files or directories
-`df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nogroup`
-Audit SUID executable
-`df --local -P | awk {'if (NR!=1)print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -4000`
-`#df --local -P | awk {'if (NR!=1) print $6'} | xargs -r '{}' find '{}' -xdev -type f -perm -4000`
-Audit SGID executables
-`df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -2000`
-
-  
-
-
-
-
-1. Network Security
-
-	1. Enable and configure UFW
-
-		```
-		apt install ufw iptables -y
-  	
-		$ ufw default deny incoming
-		$ ufw default allow outgoing
-		$ ufw allow $port/service
-		$ ufw delete $rule
-		$ ufw logging on
-		$ ufw logging high
-  		$ ufw logging verbose
-		$ ufw enable
-
-  		/etc/default/ufw:
-		IPV6=no => IPV6=yes
-		Allow or deny connections for critical services or backdoors:
-		ufw [allow/deny] [program/port/ip address]
-
-		```
-
-	1. Check `/etc/hosts` file for suspicious entries
-    		/etc/hosts.allow:
-		Remove suspicious entries
-		/etc/hosts.deny:
-		ALL: ALL
-
-
-	1. Prevent IP Spoofing
-
-		`$ echo "nospoof on" >> /etc/host.conf`
 
 
 
 
 
-
-
-1. Package Management
-
-	1. Verify the repositories listed in `/etc/apt/sources.list & /etc/apt/sources.list.d/`
 
 	1. Verify Repositories
 
@@ -258,28 +99,13 @@ Audit SGID executables
 
 			`$ apt-cache policy`
 
-		1. Check apt trusted keys
-
-			`$ apt-key list`
-
-	1. Updates
-
 		```
-		$ apt-get update
-		$ apt-get -y upgrade
-		$ apt-get -y dist-upgrade
-  		$ apt full-upgrade ONLY in special cases
-		```
-  	1. Configure updates with software-properties-gtk
-  		Check for updates daily
-		Download and install automatically for security updates
-		Display immediatly for other updates
-
+  		
  	1. Configure unattended upgrades
      		https://wiki.debian.org/UnattendedUpgrades
      		https://help.ubuntu.com/community/AutomaticSecurityUpdates
-	
-        1. sudo apt update & sudo apt upgrade or gui to update apps(firefox, mail, etc)
+	THe 10periodic 50 and 100 files in checklist check
+
            
 		**Look for points for packages mentioned in the README, along with bash (if vulnerable to Shellshock), the kernel, sudo, and sshd**
 
