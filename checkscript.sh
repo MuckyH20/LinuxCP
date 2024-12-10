@@ -1038,7 +1038,7 @@ media
 securityPackages
 #pamConfiguration
 #passwordExpiration
-#enforcePasswordPolicies
+enforcePasswordPolicies
 #auditPolicy
 #accountLockoutPolicy
 #bannerConfig
