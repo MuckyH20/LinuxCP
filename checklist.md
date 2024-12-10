@@ -147,10 +147,18 @@ remember to restart things to get points, systemctl, lightdm etc
 
 				`$ deborphan | xargs sudo apt-get -y remove --purge`
 
-		1. Look for hacking tools, games, and other unwanted/unneccessary packages
+		
+  
+  
+  
+  
+  
+  
+  
+  1. Look for hacking tools, games, and other unwanted/unneccessary packages
 
 			```
-   			$ apt list --installed | cut -d/ -f1
+   			$ xapt list --installed | cut -d/ -f1
 			$ apt-cache policy $package
 			$ which $package
 			$ dpkg-query -l | grep -E '^ii' | less
@@ -181,104 +189,15 @@ remember to restart things to get points, systemctl, lightdm etc
 
 
 
-1. Service & Application Hardening
-
-   
-For all:
-Risk mitigation:
-
-Network traffic encryption
-http vs https
-TLS is the standard, ssl is old
-Up to date ciphersuites to have up to date encryption(ex. ECDHE-ECDSA-AES128-GCM-SHA256)
-Mozilla SSL Generator is good for all this
-Be careful as backwards compatibility has to be present, customers with older pcs need to use so dont be too restrictive in that way
 
 
-Access control
-	Authentication
-	Scenario dependent
- 	Authenetication "schemes"
-  		Common: Public-Key: used for employees
-    		Passwprd
-      			Compares with local password hashes
-	 		poor password hygeine and brute force attacks, strict password reqs
-    		Kerberos not used in comp but companies use
-      		PAM: /etc/pam.d/service
- 
- 	Root Level Access
-		Discourage highly pemissive access completely
-  		Thats it
 
-    		Instead elevate using appropriate program command, like sudo in like openssh server ex
-   	
-  	Anonymous Access
-   		Scenario dependent(Something like a file server would want but not openssh)
-     		fINE TUNE PERMISSIONS BASED ON USE CASE
-       			Public file server should be read only as opposed to read-write, write only
-	  	Authentication: password based (for anon users)
+
+
+
      		
-   		
-
-   System configuration
-   	Daemon privligges
-    		Processes are tied to a user
-      			Background processes spawned by SystemD = Daemon
-	 		inherit all perms -> least permissive user (in.service)
-    		Processes are spawned by services
-		Overall check systemD service config file for crit service
-
-      
-    	Filesystem privligges
-     		Only admin should configure server
-       			Be aware of parent/child director{ies}/path{s}
-	  	Data directory access control
-    			"data" directories: databases, file shares(ex webserver public root dirwwwhtml)
-     
-     	Debug information
-      		Errors should not be shown to customers
-		Knowing exact software version helps identify vulnerabilities
-  			CVES corrsoposding to versions -> known exploits for old software
-     	Exteranally, debug as little as possible
-      	Internally, log as much as possible
-      		
-
-Incident Response:
-Logging
-	Highest verbosity logging
-	usually stored in log{s}/
- 	Permissions: superuser + darmon user
-
-  Rules of thumb:
-  Externally: reduce attack service
-  Internaly:
-  	Principle of least privlege
-   	Prepare for an incident
 
 
-Examples:
-   Apache
- nginx
-PostgreSQL
-MySQL
-SSH
-MSSQL
-VNC
-LAMP Server (Linux Apache Mysql PHP) and variations
-Wordpress
-SMB
-FTP
-DNS
-Samba 
-Mail
-
-	1. Configure OpenSSH Server in `/etc/ssh/sshd_config(ssh specific key perms if readme asks or crit service)`
-
-   ```
-
-    apt install openssh-server -y
-    service ssh enable
-    service ssh start
     chown root:root /etc/ssh/sshd_config
     chmod og-rwx /etc/ssh/sshd_config
    	~/.ssh
@@ -288,49 +207,7 @@ Mail
 	-rw-------. 1 fred fred   91 Dec 12  2012 known_hosts
 
 
-    /etc/ssh/sshd_config:
-        #KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
-        #Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-        MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
-        UsePrivilegeSeparation sandbox
-        Subsystem sftp  internal-sftp -f AUTHPRIV -l INFO
-        AllowTcpForwarding no
-        AllowStreamLocalForwarding no
-        GatewayPorts no
-        PermitTunnel no
-        UseDNS no
-        Compression no
-        TCPKeepAlive no
-        AllowAgentForwarding no
-        PermitRootLogin no
-        Port 8808
-        ForwardX11 no
-        Protocol 2
-        LogLevel INFO # Verbose
-        X11Forwarding no
-        MaxAuthTries 2
-        IgnoreRhosts yes
-        HostbasedAuthentication no
-        PermitEmptyPasswords no
-        PermitUserEnvironment no
-        ClientAliveInterval 300
-        ClientAliveCountMax 0
-        LoginGraceTime 60
-        Banner /etc/issue.net
-        ListenAddress 0.0.0.0
-        MaxSessions 2
-        MaxStartups 2
-        PasswordAuthentication yes/no ??????? depends on read me if asking for key auth only
-	PubkeyAuthentication yes/no same as above
-        AllowUsers <userlist>
-        AllowGroups <grouplist>
-        DenyUsers <userlist>
-        DenyGroups <grouplist>
-
-    service sshd restart
-    sshd -T
-    ufw allow 8808
-    systemctl reload sshd
+    
 
     ```
 
@@ -341,69 +218,6 @@ Mail
 		1. 2) Go to "Privacy & Security"
 		1. 3) At the bottom, check "Block dangerous and deceptive content" and all sub-checks
 		
-
-	1. Configure apache2 in `/etc/apache2/apache2.conf`
-
-		```
-		apt install apache2
-		service apache2 start
-		service apache2 enable
-		ufw allow "Apache Full"
-		apt install libapache2-mod-security2
-		mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
-		useradd -r -s /bin/false apache
-		groupadd apache
-		useradd -G apache apache
-		chown -R apache:apache /opt/apache
-		chmod -R 750 /etc/apache2/*
-		/etc/apache2/apache2conf
-		ServerTokens Prod
-		ServerSignature Off
-		FileETag None
-		User apache 
-		Group apache
-		TraceEnable off
-		Timeout 60
-		Header always append X-Frame-Options SAMEORIGIN
-		Header set X-XSS-Protection "1; mode=block"
-		<Directory />
-		Options –Indexes -Includes
-		AllowOverride None
-		</Directory>
-		<LimitExcept GET POST HEAD>
-		deny from all
-		</LimitExcept>
-		# $EDITOR httpsd.conf
-		<Directory /opt/apache/htdocs>
-		Options None
-		</Directory>
-		<Directory />
-		Options -Indexes
-		AllowOverride None
-		</Directory>
-		service apache2 restart
-		```
-  	1. mySQL
-      
-      		```
-      		apt install mysql-server -y
-      		mysql_secure_installation
-      		service mysql enable
-      		service mysql start
-      		/etc/mysql/mysql.conf.d/mysqld.cnf
-      		bind-address = 127.0.0.1
-      		user = mysql
-      		port = 1542
-      		local_infile = 0
-      		symbolic-links = 0
-      		default_password_lifetime = 90
-      		service mysql restart
-		```
-   	1. Postfix
-   	   	```
-   	        /etc/postfix/main.cf:
-		inet_interfaces = loopback-only
-
 
 
 1. Remove uneccessary proccesses with
@@ -545,240 +359,6 @@ Mail
 		chmod og-rwx /etc/cron.d
         ```
 
-
-
-
-
-
-
-1. Kernel Hardening
-
-	1. Edit the `/etc/sysctl.conf` file(might be more)
-
-		```
-		fs.file-max = 65535
-		fs.protected_fifos = 2
-		fs.protected_regular = 2
-		fs.suid_dumpable = 0
-		kernel.core_uses_pid = 1
-		kernel.dmesg_restrict = 1
-		kernel.exec-shield = 1
-		kernel.sysrq = 0
-		kernel.randomize_va_space = 2
-		kernel.pid_max = 65536
-		net.core.rmem_max = 8388608
-		net.core.wmem_max = 8388608
-		net.core.netdev_max_backlog = 5000
-		net.ipv4.tcp_rmem = 10240 87380 12582912
-		net.ipv4.tcp_window_scaling = 1
-		net.ipv4.tcp_wmem = 10240 87380 12582912
-		net.ipv4.conf.all.accept_redirects = 0
-		net.ipv4.conf.all.accept_source_route = 0
-		net.ipv4.conf.all.log_martians = 1
-		net.ipv4.conf.all.redirects = 0
-		net.ipv4.conf.all.rp_filter = 1
-		net.ipv4.conf.all.secure_redirects = 0
-		net.ipv4.conf.all.send_redirects = 0
-		net.ipv4.conf.default.accept_redirects = 0
-		net.ipv4.conf.default.accept_source_route = 0
-		net.ipv4.conf.default.log_martians = 1
-		net.ipv4.conf.default.rp_filter = 1
-		net.ipv4.conf.default.secure_redirects = 0
-		net.ipv4.conf.default.send_redirects = 0
-		net.ipv4.icmp_echo_ignore_all = 1
-		net.ipv4.icmp_echo_ignore_broadcasts = 1
-		net.ipv4.icmp_ignore_bogus_error_responses = 1
-		net.ipv4.ip_forward = 0
-		net.ipv4.ip_local_port_range = 2000 65000
-		net.ipv4.tcp_max_syn_backlog = 2048
-		net.ipv4.tcp_synack_retries = 2
-		net.ipv4.tcp_syncookies = 1
-		net.ipv4.tcp_syn_retries = 5
-		net.ipv4.tcp_timestamps = 9
-
-		# Disable IPv6
-		net.ipv6.conf.all.disable_ipv6 = 1
-		net.ipv6.conf.default.disable_ipv6 = 1
-		net.ipv6.conf.lo.disable_ipv6 = 1
-
-		# Incase IPv6 is necessary
-		net.ipv6.conf.default.router_solicitations = 0
-		net.ipv6.conf.default.accept_ra_rtr_pref = 0
-		net.ipv6.conf.default.accept_ra_pinfo = 0
-		net.ipv6.conf.default.accept_ra_defrtr = 0
-		net.ipv6.conf.default.autoconf = 0
-		net.ipv6.conf.default.dad_transmits = 0
-		net.ipv6.conf.default.max_addresses = 1
-
-
-  		alt:
-
-  		/etc/sysctl.conf:
-		fs.protected_hardlinks=1
-		fs.protected_symlinks=1
-		fs.suid_dumpable=0
-  		kernel.kptr_restrict=2
-		kernel.exec-shield=1
-		kernel.randomize_va_space=2
-		net.ipv4.ip_forward=0
-		net.ipv4.conf.all.rp_filter=1
-		net.ipv4.conf.all.accept_source_route=0
-		net.ipv4.conf.all.send_redirects=0
-		net.ipv4.conf.all.log_martians=1
-		net.ipv4.conf.all.secure_redirects=0
-		net.ipv6.conf.all.accept_ra=0
-		net.ipv4.conf.default.secure_redirects=0
-		net.ipv4.conf.default.send_redirects=0
-		net.ipv4.conf.default.log_martians=1
-		net.ipv4.conf.default.rp_filter=1
-		net.ipv4.icmp_echo_ignore_broadcasts=1
-		net.ipv4.icmp_ignore_bogus_error_messages=1
-		net.ipv4.icmp_ignore_bogus_error_responses=1
-		net.ipv4.tcp_syncookies=1
-		net.ipv6.conf.all.accept_redirects=0
-		net.ipv6.conf.all.disable_ipv6 = 1 # Careful! This disables IPv6
-		net.ipv6.conf.default.accept_ra=0
-		net.ipv6.conf.default.accept_redirects=0
-		/etc/security/limits.conf:
-		* hard core 0
-		/etc/modprobe.d/CIS.conf:
-		install dccp /bin/true
-		install sctp /bin/true
-		install rds /bin/true
-		install tipc /bin/true
-		/etc/host.conf:
-		order bind,hosts
-		multi on
-		nospoof on
-		/etc/resolv.conf:
-		make server 8.8.8.8
-		/etc/rc.local:
-		exit 0
-		```
-
-	1. Load new sysctl settings
-
-		`$ sysctl -p` or `sysctl --system`
-	1. Mounting
-	```
-	mount -o remountcnoexec /dev/shm
-	mount -o remount,nosuid /dev/shm1
-	mount -o remount,nodev /dev/shm
-	/etc/fstab:
-	none /run/shm tmpfs defaults,ro 0 0
-
-
-
-
-
-
-
-
-
-1. Antivirus
-
-	1. Install `clamav`, `chkrootkit`, and `rkhunter`
-
-		`$ apt-get install clamav chkrootkit rkhunter`
-
-	1. Run ClamAV
-
-		```
-		$ freshclam
-		$ freshclam --help
-  		$ clam scan
-  		$ clamscan -r --remove
-		```
-
-	1. Run chkrootkit
-
-		`$ chkrootkit -l`
-
-	1. Run RKHunter
-
-		```
-		$ rkhunter --update
-		$ rkhunter --propupd
-		$ rkhunter -c --enable all --disable none
-		```
-
-	1. Look through `/var/log/rkhunter.log`
-
-	1. Look at /etc/modules-load.d/ for systemD modules on start up, .ko files like dll. See what it is with modinfo and remove with rmmod.
-
-
-
-
-
-
-
-
-1. Audit the System with Lynis
-
-	1. Install
-
-		```
-		$ cd /usr/local
-		$ git clone https://github.com/CISOfy/lynis
-		$ chown -R 0:0 /usr/local/lynis
-		```
-
-	1. Audit the system with Lynis
-
-		```
-		$ cd /usr/local/lynis
-		$ lynis audit system or lynis -c
-		```
-
-	1. Look through `/var/log/lynis-report.dat or lynis.log` for warnings and suggestions
-
-		`$ grep -E 'warning|suggestion' | sed -e 's/warning\[\]\=//g' | sed -e 's/suggestion\[\]\=//g'`
-
-
-
-1. USB
-   ```
-        # Stop and disable autofs to prevent automatic filesystem mounting
-	service autofs stop
-	systemctl disable autofs
-
-	# Blacklist usb-storage to disable USB storage device access
-	echo "blacklist usb-storage" | sudo tee /etc/modprobe.d/blacklist-usb-storage.conf
-	sudo modprobe -r usb-storage  # Unload if already loaded
-
-	# Install and enable USBGuard for USB access control
-	apt install usbguard -y
-	systemctl start usbguard
-	systemctl enable usbguard
-
-
-
-
-
-
-
-
-
-1. Configure Auditd
-
-	1. Install
-
-		`$ apt-get install auditd`
-
-	1. Enable
-
-		`$ auditctl -e 1`
-
-	1. Configure with `/etc/audit/auditd.conf`
-```
-/etc/audit/audit.rules:
--D
--w / -p rwax -k filesystem_change
--a always,exit -S all
--e 2
-/etc/audit/auditd.conf:
-max_log_file_action=keep_log
-```
 
 
 Misc:
