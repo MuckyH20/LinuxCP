@@ -692,7 +692,7 @@ ListenAddress 0.0.0.0
 MaxSessions 2
 MaxStartups 2
 PasswordAuthentication yes/no ???????
-PubkeyAuthentication yes/no same as above
+PubkeyAuthentication yes/no same as above but no if nothing is said
 AllowUsers <userlist>
 AllowGroups <grouplist>
 DenyUsers <userlist>
