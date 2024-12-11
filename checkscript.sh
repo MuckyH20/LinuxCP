@@ -659,6 +659,7 @@ function openssh-server() {
     chown root:root /etc/ssh/sshd_config
     chmod og-rwx /etc/ssh/sshd_config
     echo "
+# out AcceptEnv
 #KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
 #Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
@@ -691,6 +692,7 @@ ListenAddress 0.0.0.0
 MaxSessions 2
 MaxStartups 2
 PasswordAuthentication yes/no ???????
+PubkeyAuthentication yes/no same as above
 AllowUsers <userlist>
 AllowGroups <grouplist>
 DenyUsers <userlist>
