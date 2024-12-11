@@ -205,8 +205,37 @@ function pamConfiguration() {
     ## PAM configuration
     echo "Configuring PAM"
     echo "
-    auth	required	pam_cracklib.so reject_username enforce_for_root maxclassrepeat=5 maxsequence=5 dcredit=-1 ocredit=-1 lcredit=-1 ucredit=-1 minlen=16 difok=5 retry=3
-    auth	required	pam_unix.so sha512 use_authtok remember=5
+    # here are the per-package modules (the "Primary" block)
+
+# Enforces password complexity and policies
+password    required                        pam_pwquality.so reject_username 				enforce_for_root maxclassrepeat=5 maxsequence=5 maxrepeat=3 dcredit=-1 ocredit=-1 			lcredit=-1 ucredit=-1 minlen=10 difok=5 retry=3
+
+# Enforces strong password hashing and prevents password reuse
+password    required                        pam_unix.so obscure sha512 remember=12 			use_authtok
+
+# Enforces password history to prevent recent reuse of passwords
+password    required                        pam_pwhistory.so remember=12 				enforce_for_root use_authtok
+
+password    sufficient                      pam_sss.so use_authtok
+
+# here's the fallback if no module succeeds
+password    requisite                       pam_deny.so
+
+# prime the stack with a positive return value if there isn't one already;
+# this avoids us returning an error just because nothing sets a success code
+# since the modules above will each just jump around
+password    required                        pam_permit.so
+
+# and here are more per-package modules (the "Additional" block)
+password    optional                        pam_gnome_keyring.so
+
+# end of pam-auth-update config
+
+# Log the last login and failed attempts for each user session
+session     required                        pam_lastlog.so showfailed
+
+
+
     "
     editfile /etc/pam.d/common-password
 }
