@@ -1068,7 +1068,7 @@ purgeUnauthorizedPackages
 unauthorizedFiles
 media
 securityPackages
-#pamConfiguration
+pamConfiguration
 #passwordExpiration
 enforcePasswordPolicies
 #auditPolicy
