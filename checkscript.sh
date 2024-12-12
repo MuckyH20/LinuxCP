@@ -303,6 +303,7 @@ function auditPolicy() {
     action_mail_acct = root
     admin_space_left_action = halt
     max_log_file_action = keep_logs
+    local_events=yes
     "
     editfile /etc/audit/auditd.conf
 
