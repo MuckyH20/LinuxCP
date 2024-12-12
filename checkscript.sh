@@ -138,6 +138,7 @@ function fixSources() {
 
     editfile /etc/apt/sources.list
     editdir /etc/apt/sources.list.d/
+    editdir /etc/apt/apt.conf.d/
 
     ## GPG keys
     echo "Take a look at the apt sources keys"
