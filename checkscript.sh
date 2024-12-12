@@ -483,7 +483,7 @@ function lockUserAccounts() {
     then
         editfile /etc/lightdm/lightdm.conf
     else
-        editfile /etc/gdm/custom.conf
+        editfile /etc/gdm3/custom.conf
         echo "
     DELETE LINE => auth sufficient pam_succeed_if.so user ingroup nopasswdlogin
     "
