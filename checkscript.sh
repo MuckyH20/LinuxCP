@@ -235,7 +235,7 @@ password    optional                        pam_gnome_keyring.so
 # Log the last login and failed attempts for each user session
 session     required                        pam_lastlog.so showfailed
 
-
+(in nevermore minlen didnt work until appended but worked in aperture)
 
     "
     editfile /etc/pam.d/common-password
