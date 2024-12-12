@@ -1069,12 +1069,12 @@ unauthorizedFiles
 media
 securityPackages
 pamConfiguration
-#passwordExpiration
+passwordExpiration
 enforcePasswordPolicies
-#auditPolicy
+auditPolicy
 #accountLockoutPolicy
-#bannerConfig
-#usbSecurity
+bannerConfig
+usbSecurity
 filePermissions
 lockUserAccounts
 groupUserConfig
