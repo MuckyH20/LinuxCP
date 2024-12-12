@@ -411,11 +411,11 @@ function accountLockoutPolicy() {
     auth	required	pam_tally2.so deny=5 onerr=fail audit even_deny_root lock_time=1200 unlock_time=1800
     above is outdated use
 
-    Enforce account lockout policy in `/etc/pam.d/common-auth`
+    Enforce account lockout policy in /etc/pam.d/common-auth
 
-		**MUST COME FIRST**
+		MUST COME FIRST
 
-	   	```
+	   	
      		sudo touch /usr/share/pam-configs/faillock
      		sudo micro /usr/share/pam-configs/faillock
 
