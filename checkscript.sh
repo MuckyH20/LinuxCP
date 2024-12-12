@@ -1090,7 +1090,7 @@ ask "Is postfix a critcal service" postfix
 ask "Is nginx a critical service" nginx
 cronConfig
 mountConfig
-#kernelConfig
+kernelConfig
 fileAuditing
 securityAuditing
 }
