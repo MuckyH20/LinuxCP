@@ -1076,7 +1076,7 @@ enforcePasswordPolicies
 #bannerConfig
 #usbSecurity
 filePermissions
-#lockUserAccounts
+lockUserAccounts
 groupUserConfig
 sudoConfig
 firewallConfig
