@@ -32,6 +32,7 @@ https://github.com/Wes-Bl/Cyberpatriot-Wiki/wiki/Comprehensive-Checklist-for-Lin
 Firefox
 https://github.com/simeononsecurity/FireFox-STIG-Script
 https://github.com/delight-im/Secure-Firefox/blob/master/Source/user.js(add user_pref("dom.security.https_only_mode", true);)
+w https://github.com/arkenfox/user.js
 ftp
 https://hackviser.com/tactics/hardening/vsftpd
 
