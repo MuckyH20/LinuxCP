@@ -407,6 +407,41 @@ function accountLockoutPolicy() {
     echo "Set account lockout policy(use faillock)"
     echo "
     auth	required	pam_tally2.so deny=5 onerr=fail audit even_deny_root lock_time=1200 unlock_time=1800
+    above is outdated use
+
+    Enforce account lockout policy in `/etc/pam.d/common-auth`
+
+		**MUST COME FIRST**
+
+	   	```
+     		sudo touch /usr/share/pam-configs/faillock
+     		sudo micro /usr/share/pam-configs/faillock
+
+     		In /usr/share/pam-configs/faillock type the following text:
+		Name: Enforce failed login attempt counter
+		Default: no
+		Priority: 0
+		Auth-Type: Primary
+		Auth:
+		    [default=die] pam_faillock.so authfail
+		    sufficient pam_faillock.so authsucc
+
+     		sudo touch /usr/share/pam-configs/faillock_notify
+     		sudo micro /usr/share/pam-configs/faillock_notify
+
+     		In /usr/share/pam-configs/faillock_notify type the following text:
+		Name: Notify on failed login attempts
+		Default: no
+		Priority: 1024
+		Auth-Type: Primary
+		Auth:
+		    requisite pam_faillock.so preauth
+
+     		sudo pam-auth-update
+
+     		Select,with the spacebar, Notify on failed login attempts, and Enforce failed login attempt counter, and then select <Ok>
+     		![image](https://github.com/user-attachments/assets/f00b9bff-6cef-4dd5-9438-deef48485777)
+
     "
     editfile /etc/pam.d/common-auth
     echo "
