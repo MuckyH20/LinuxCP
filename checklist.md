@@ -47,49 +47,6 @@ remember to restart things to get points, systemctl, lightdm etc
 
 
 
-   
-           
-
-
-	1. Check minimum and maximum password ages in `/etc/shadow`
-
-		Use `chage` to change password expiration.
-
-		`$ chage -m $MIN -M $MAX $user`
-
-	1. Script
-	```
- 	#!/bin/bash
-
-	# Set default inactivity period to 30 days for new users
-	useradd -D -f 30
-
-	# Enforce 30-day inactivity for all existing non-system users
-	for user in $(awk -F: '{ if ($3 >= 1000) print $1 }' /etc/passwd); do
-            chage --inactive 30 "$user"
-
-            # Ensure no user has a password change date in the future
-            last_change=$(chage -l "$user" | grep "Last password change" | cut -d: -f2)
-            if [[ $(date -d "$last_change" +%s) -gt $(date +%s) ]]; then
-                chage -d 0 "$user"
-            fi
-        done
-
-	# Lock and set non-login shell for system users (UID < 1000)
-	for user in $(awk -F: '($3 < 1000) {print $1 }' /etc/passwd); do
-    	    if [ "$user" != "root" ]; then
-               usermod -L "$user"
-               if [ "$user" != "sync" ] && [ "$user" != "shutdown" ] && [ "$user" != "halt" ]; then
-                   usermod -s /usr/sbin/nologin "$user"
-               fi
-            fi
-        done
-
-	
-
-
-
-
 		**There also may be unauthorized network shares not under the /home directory**
 	1. Files/directories
 		```
