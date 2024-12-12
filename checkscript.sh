@@ -540,15 +540,15 @@ function groupUserConfig() {
     remove unauthorized users from groups	gpasswd -d [user] [group]
     "
 
-    echo "	Compare `/etc/passwd` and `/etc/group` to the readme. Or use gui, prob easier. 
+    echo "	Compare /etc/passwd and /etc/group to the readme. Or use gui, prob easier. 
 
 		Look out for uid 0 and hidden users! if you find user with uid 0, edit the /etc/passwd file. If anyone had uid 0, means they are root that is not good!! You will need to edit /etc/passwd file.
 
            Find unauth users/admins/groups
-                look for unauth admin: `getent group | grep sudo`
-           	not comprehensive, group privs given in sudoers`getent group | grep :0`
-           	get unauth root: `getent passwd | grep :0`
-                get all users: `getent passwd | grep /home`"
+                look for unauth admin: getent group | grep sudo
+           	not comprehensive, group privs given in sudoers`getent group | grep :0
+           	get unauth root: getent passwd | grep :0
+                get all users: getent passwd | grep /home"
     pause
 }
 
