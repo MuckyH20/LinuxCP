@@ -1072,7 +1072,7 @@ pamConfiguration
 passwordExpiration
 enforcePasswordPolicies
 auditPolicy
-#accountLockoutPolicy
+accountLockoutPolicy
 bannerConfig
 usbSecurity
 filePermissions
