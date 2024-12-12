@@ -404,7 +404,7 @@ function auditPolicy() {
 
 function accountLockoutPolicy() {
     ## Account lockout policy
-    echo "Set account lockout policy"
+    echo "Set account lockout policy(use faillock)"
     echo "
     auth	required	pam_tally2.so deny=5 onerr=fail audit even_deny_root lock_time=1200 unlock_time=1800
     "
