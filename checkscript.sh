@@ -33,7 +33,7 @@ function editfile() {
     echo "Use the above lines (if any) to edit the next file as needed"
     pause
     cp $1 $(pwd)/
-    vim $1
+    micro $1
 }
 
 function listusers() {
