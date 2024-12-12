@@ -39,6 +39,8 @@ Path variable
 
 look at nondefaultfiles if stuck
 
+system ctl start/restart for crit services
+
 ## Checklist
 
 -
