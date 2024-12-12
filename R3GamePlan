@@ -14,7 +14,7 @@ README
 Broken componenets
 Forensic Questions
 
-remove gpt suids for suid.list
+remove sudo from suid.list
 Konstrukoid script
 worst case just record vulns
 
