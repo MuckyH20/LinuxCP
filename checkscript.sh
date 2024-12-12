@@ -578,7 +578,7 @@ function sudoConfig() {
 
 		1. Any commands listed can be run without a password (ex: /bin/chmod)
 
-		1. Group lines are preceded by `%`
+		1. Group lines are preceded by %
 
      		1. General file check if unauth user has sudo access like user1 ALL=(ALL) ALL "
     
