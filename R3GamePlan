@@ -7,17 +7,20 @@
 Current
 
 xxx
+
 cp script up to forensics part
+
 README
 Broken componenets
 Forensic Questions
-
 
 Konstrukoid script
 worst case just record vulns
 
 edit out conflicts in cp script
 run cp script
+
+Checklist+answerkeyvulns(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
 
 harden services
 my sql and php
@@ -27,8 +30,6 @@ https://github.com/simeononsecurity/FireFox-STIG-Script
 ftp
 https://hackviser.com/tactics/hardening/vsftpd
 
-
-Checklist(services first. also keep track of everything you do and if you get points. Avoid rabbitholes.)
 For additional service hardening simply search up * hardening
 
 peass script
