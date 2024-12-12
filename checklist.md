@@ -257,7 +257,7 @@ remember to restart things to get points, systemctl, lightdm etc
 
 	1. Check your user's crontabs
 
-		`$ crontab -e, var/spool/cron tells you who has crons for example if its root do sudo crontab -e`
+		`$ crontab -e, var/spool/cron tells you who has crons for example if its root do sudo crontab -e or actually just cat the root file by listing the whole dir in var/spool/cron lol okay this makes sense`
 
 	1. Check `/etc/cron.*/`, `/etc/crontab`, and `/var/spool/cron/`
 
