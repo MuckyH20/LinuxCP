@@ -17,6 +17,7 @@ Forensic Questions
 Re run script to update part
 
 remove sudo from suid.list
+edit out include ssh
 Konstrukoid script
 worst case just record vulns
 
