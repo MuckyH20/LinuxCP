@@ -1042,22 +1042,21 @@ function securityAuditing() {
 }
 
 function media() {
-    echo "Removing media files...\n"
-    find / -name '*.mp3' -type f -exec rm -i {} \;
-    find / -name '*.mov' -type f -exec rm -i {} \;
-    find / -name '*.mp4' -type f -exec rm -i {} \;
-    find / -name '*.avi' -type f -exec rm -i {} \;
-    find / -name '*.mpg' -type f -exec rm -i {} \;
-    find / -name '*.mpeg' -type f -exec rm -i {} \;
-    find / -name '*.flac' -type f -exec rm -i {} \;
-    find / -name '*.m4a' -type f -exec rm -i {} \;
-    find / -name '*.flv' -type f -exec rm -i {} \;
-    find / -name '*.ogg' -type f -exec rm -i {} \;
-    find /home -name '*.gif' -type f -exec rm -i {} \;
-    find /home -name '*.png' -type f -exec rm -i {} \;
-    find /home -name '*.jpg' -type f -exec rm -i {} \;
-    find /home -name '*.jpeg' -type f -exec rm -i {} \;
-    }
+    echo "Searching for and removing media files interactively..."
+    # Directories to exclude
+    excluded_dirs="/opt /usr /var"
+    # Log file for removed files
+    log_file="/var/log/media_removal.log"
+
+    for ext in mp3 mov mp4 avi mpg mpeg flac m4a flv ogg gif png jpg jpeg; do
+        echo "Searching for *.$ext files..."
+        find / -name "*.$ext" -type f \
+            $(printf "! -path %s " $excluded_dirs) \
+            -exec rm -i {} \; | tee -a $log_file
+    done
+    echo "Media removal process completed. See $log_file for details."
+}
+
 
 
 function main() {
