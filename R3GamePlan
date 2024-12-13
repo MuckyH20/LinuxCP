@@ -38,7 +38,7 @@ https://hackviser.com/tactics/hardening/vsftpd
 
 For additional service hardening simply search up * hardening
 
-peass script
+peass script https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS
 cis check
 Use cypat gpt and google and ss64 for research
 
