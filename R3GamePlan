@@ -42,6 +42,8 @@ peass script https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS
 cis check
 Use cypat gpt and google and ss64 for research
 
+Last hour use answer keys
+
 Baseline(Keep image open at all times too to do checks. Also utilize the hash part of the script to see files cyberpatriot edited. Or third party app aide for files and files perms) In terms of baselining comparing ports is another big thing.
 Utilize STIG(Main driving force) + CIS and GPT combo
 Look through file system, use your intuition. Practice images would create this intuition.
