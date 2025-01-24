@@ -1054,7 +1054,7 @@ function media() {
             $(printf "! -path %s " $excluded_dirs) \
             -exec rm -i {} \; | tee -a $log_file
     done
-    echo "Media removal process completed. See $log_file for details."
+    echo "Media removal process completed. See $log_file for details. Also look for other types of files in your home dir use ui"
 }
 
 
