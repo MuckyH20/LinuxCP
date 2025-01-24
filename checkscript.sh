@@ -1100,16 +1100,16 @@ fi
 read -p "What is the name of your main user account: " mainUser
 
 ### run
-backup
-setup
-forensicQuestions
-autoUpdates
-fixSources
-updateSystem
+#backup
+#setup
+#forensicQuestions
+#autoUpdates
+#fixSources
+#updateSystem
 installAuthorizedPackages
-purgeUnauthorizedPackages
-unauthorizedFiles
-media
+#purgeUnauthorizedPackages
+#unauthorizedFiles
+#media
 securityPackages
 pamConfiguration
 passwordExpiration
@@ -1121,7 +1121,7 @@ usbSecurity
 filePermissions
 lockUserAccounts
 groupUserConfig
-sudoConfig
+#sudoConfig
 firewallConfig
 findingBackdoors
 hostFileConfig
