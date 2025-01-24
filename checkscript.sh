@@ -541,6 +541,7 @@ function groupUserConfig() {
     delete unauthorized groups			groupdel [group]
     add authorized users to groups		usermod -aG [group] [user]
     remove unauthorized users from groups	gpasswd -d [user] [group]
+    also check shadow for password logins on sys users
     "
 
     echo "
