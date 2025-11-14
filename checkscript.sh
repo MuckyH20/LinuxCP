@@ -1080,48 +1080,48 @@ case $(uname -m) in
     "x86_64") systembit=64;;
 esac
 
-read -p "What version of ubuntu are you using (14/16/18/22): " distro
-if [ $distro == "12" ]
-then
-    curl http://releases.ubuntu.com/precise/ubuntu-12.04.5-desktop-amd64.manifest | cut -f1 > defaults
-elif [ $distro == "14" ]
-then
-    curl http://releases.ubuntu.com/trusty/ubuntu-14.04.6-desktop-amd64.manifest | cut -f1 > defaults
-elif [ $distro == "16" ]
-then
-    curl http://releases.ubuntu.com/xenial/ubuntu-16.04.7-desktop-amd64.manifest | cut -f1 > defaults
-elif [ $distro == "18" ]
-then
-     curl http://releases.ubuntu.com/bionic/ubuntu-18.04.5-desktop-amd64.manifest | cut -f1 > defaults
-else
-    curl https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.manifest | cut -f1 > defaults
-fi
+#read -p "What version of ubuntu are you using (14/16/18/22): " distro
+#if [ $distro == "12" ]
+#then
+ #  curl http://releases.ubuntu.com/precise/ubuntu-12.04.5-desktop-amd64.manifest | cut -f1 > defaults
+#elif [ $distro == "14" ]
+#then
+#    curl http://releases.ubuntu.com/trusty/ubuntu-14.04.6-desktop-amd64.manifest | cut -f1 > defaults
+#elif [ $distro == "16" ]
+#then
+#    curl http://releases.ubuntu.com/xenial/ubuntu-16.04.7-desktop-amd64.manifest | cut -f1 > defaults
+#elif [ $distro == "18" ]
+#then
+#     curl http://releases.ubuntu.com/bionic/ubuntu-18.04.5-desktop-amd64.manifest | cut -f1 > defaults
+#else
+#    curl https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.manifest | cut -f1 > defaults
+#fi
 
 read -p "What is the name of your main user account: " mainUser
 
 ### run
-#backup
-#setup
+backup
+setup
 #forensicQuestions
-#autoUpdates
-#fixSources
-#updateSystem
-#installAuthorizedPackages
-#purgeUnauthorizedPackages
-#unauthorizedFiles
-#media
-#securityPackages
-#pamConfiguration
-#passwordExpiration
-#enforcePasswordPolicies
-#auditPolicy
-#accountLockoutPolicy
+autoUpdates
+fixSources
+updateSystem
+installAuthorizedPackages
+purgeUnauthorizedPackages
+unauthorizedFiles
+media
+securityPackages
+pamConfiguration
+passwordExpiration
+enforcePasswordPolicies
+auditPolicy
+accountLockoutPolicy
 bannerConfig
 usbSecurity
 filePermissions
 lockUserAccounts
 groupUserConfig
-#sudoConfig
+sudoConfig
 firewallConfig
 findingBackdoors
 hostFileConfig
