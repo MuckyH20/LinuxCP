@@ -1104,7 +1104,7 @@ backup
 setup
 #forensicQuestions
 autoUpdates
-fixSources
+#fixSources
 updateSystem
 installAuthorizedPackages
 purgeUnauthorizedPackages
