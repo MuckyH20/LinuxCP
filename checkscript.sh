@@ -1100,14 +1100,14 @@ esac
 read -p "What is the name of your main user account: " mainUser
 
 ### run
-backup
-setup
-forensicQuestions
-autoUpdates
-fixSources
-updateSystem
-installAuthorizedPackages
-purgeUnauthorizedPackages
+#backup
+#setup
+#forensicQuestions
+#autoUpdates
+#fixSources
+#updateSystem
+#installAuthorizedPackages
+#purgeUnauthorizedPackages
 unauthorizedFiles
 media
 securityPackages
