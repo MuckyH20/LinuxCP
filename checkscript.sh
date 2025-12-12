@@ -1099,19 +1099,19 @@ esac
 read -p "What is the name of your main user account: " mainUser
 
 ### run
-#backup
-#setup
+backup
+setup
 #forensicQuestions
-#autoUpdates
+autoUpdates
 #fixSources?
-#updateSystem
-#installAuthorizedPackages
-#purgeUnauthorizedPackages
-#unauthorizedFiles
+updateSystem
+installAuthorizedPackages
+purgeUnauthorizedPackages
+unauthorizedFiles
 #media
-#securityPackages
+securityPackages
 #pamConfiguration
-#passwordExpiration
+passwordExpiration
 #enforcePasswordPolicies #take ss
 auditPolicy
 #accountLockoutPolicy copy from ishaan
