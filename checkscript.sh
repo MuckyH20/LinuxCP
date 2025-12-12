@@ -151,7 +151,7 @@ function updateSystem() {
     echo "Updating the system"
     apt update -y
     apt upgrade -y
-    apt dist-upgrade -y
+    #apt dist-upgrade -y
     snap refresh
     pause
 }
@@ -249,7 +249,6 @@ function passwordExpiration() {
     PASS_MAX_DAYS 90
     PASS_MIN_DAYS 30
     PASS_WARN_AGE 7
-    umask 027
     "
     editfile /etc/login.defs
 }
@@ -1100,26 +1099,26 @@ esac
 read -p "What is the name of your main user account: " mainUser
 
 ### run
-#backup
-#setup
+backup
+setup
 #forensicQuestions
-#autoUpdates
-#fixSources
-#updateSystem
-#installAuthorizedPackages
-#purgeUnauthorizedPackages
+autoUpdates
+#fixSources?
+updateSystem
+installAuthorizedPackages
+purgeUnauthorizedPackages
 unauthorizedFiles
-media
+#media
 securityPackages
-pamConfiguration
+#pamConfiguration
 passwordExpiration
-enforcePasswordPolicies
+enforcePasswordPolicies #take ss
 auditPolicy
-accountLockoutPolicy
+#accountLockoutPolicy copy from ishaan
 bannerConfig
 usbSecurity
 filePermissions
-lockUserAccounts
+lockUserAccounts #ss
 groupUserConfig
 sudoConfig
 firewallConfig
